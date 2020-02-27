@@ -86,30 +86,83 @@
 
   <hr>
 
-  <!-- Pagination -->
-  <ul class="pagination justify-content-center">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">1</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">2</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">3</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-
 </div>
 <!-- /.container -->
+
+<div class="container">
+  <!--Google map-->
+  <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+   <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+          style="border:0" allowfullscreen></iframe>
+    </div>
+
+  <br>
+
+<!-- Pagination -->
+<ul class="pagination justify-content-center">
+  <li class="page-item">
+    <a class="page-link" href="#" aria-label="Previous">
+      <span aria-hidden="true">&laquo;</span>
+      <span class="sr-only">Previous</span>
+    </a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#">3</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#" aria-label="Next">
+      <span aria-hidden="true">&raquo;</span>
+      <span class="sr-only">Next</span>
+    </a>
+  </li>
+</ul>
+
+  <br>
+
+  <!-- Form -->
+  <div class="speech">
+    <h1 class="mt-4 mb-3">JOIN THE REBELLION
+    </h1>
+  </div>
+
+  <br>
+
+  <form>
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="First Name" required>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Last Name" required>
+      </div>
+      <div class="col">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+          </div>
+          <input type="text" class="form-control" id="validationDefaultEmail" placeholder="Email" aria-describedby="inputGroupPrepend2" required>
+        </div>
+      </div>
+    <div class="col">
+      <button type="button" class="btn btn-primary btn-block" type="submit">Join</button>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+        <label class="form-check-label" for="invalidCheck2">
+          I give my consent to Extinction Rebellion to get in touch with me using the information I have provided in this form, for the purpose of news, update, and rebellion
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+
+<br>
