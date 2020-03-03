@@ -6,6 +6,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :start_time
       t.string :end_time
       t.string :description
+      t.string :place_name
       t.float :lat
       t.float :long
       t.string :street
