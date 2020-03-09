@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dissertation - Maintenance Manual
 
-Things you may want to cover:
+<br>
 
-* Ruby version
+Installation instructions:
+Ruby 2.6.5
+Rails version 5.2.4
 
-* System dependencies
+<br>
 
-* Configuration
+Description of third party software required and where to get it from:
+Sengrid Account for mailer service
+Heroku Account for production environment
 
-* Database creation
+<br>
 
-* Database initialization
+List of packages and files and what they are for:
+JQuery - Javascript library
+Boostrap4 - Front-end framework
+Postgres - Server
+Sengrid - Mailer
+Devise - Authentication
+CanCanCan - Authorization
 
-* How to run the test suite
+<br>
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Description of how the system can be changed for most likely future adaptation and extensions:
