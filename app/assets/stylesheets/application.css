@@ -22,6 +22,7 @@ body {
 .navbar {
     background-color: #14ab37;
     text-transform:uppercase;
+    vertical-align: middle;
 }
 
 .carousel-item {
