@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :products
   get 'about_us/contact'
   get 'home/index'
 
