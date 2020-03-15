@@ -14,8 +14,9 @@ class ProductsTest < ApplicationSystemTestCase
     visit products_url
     click_on "New Product"
 
+    fill_in "Date", with: @product.date
     fill_in "Description", with: @product.description
-    fill_in "Image url", with: @product.image_url
+    fill_in "Location", with: @product.location
     fill_in "Name", with: @product.name
     click_on "Create Product"
 
@@ -27,8 +28,9 @@ class ProductsTest < ApplicationSystemTestCase
     visit products_url
     click_on "Edit", match: :first
 
+    fill_in "Date", with: @product.date
     fill_in "Description", with: @product.description
-    fill_in "Image url", with: @product.image_url
+    fill_in "Location", with: @product.location
     fill_in "Name", with: @product.name
     click_on "Update Product"
 

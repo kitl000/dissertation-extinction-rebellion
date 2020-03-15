@@ -4,9 +4,13 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:q]
+      search_term = params[:q]
+      @products = Product.search(search_term)
+    else
+      @products = Product.all
+    end
   end
-
   # GET /products/1
   # GET /products/1.json
   def show
@@ -69,6 +73,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :image_url)
+      params.require(:product).permit(:name, :description, :location, :date)
     end
 end

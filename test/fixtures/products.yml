@@ -3,9 +3,11 @@
 one:
   name: MyString
   description: MyText
-  image_url: MyString
+  location: MyString
+  date: MyString
 
 two:
   name: MyString
   description: MyText
-  image_url: MyString
+  location: MyString
+  date: MyString
