@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :users
   resources :products
   get 'about_us/contact'
   post 'about_us/thank_you'
