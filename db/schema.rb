@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 2020_03_16_174426) do
     t.string "start_time"
     t.string "end_time"
     t.string "description"
-    t.string "place_name"
     t.float "lat"
     t.float "long"
     t.string "street"
     t.string "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "place_name"
   end
 
   create_table "products", force: :cascade do |t|
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 2020_03_16_174426) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "provider"
+    t.string "uid"
+    t.text "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -7,7 +7,10 @@ ruby '2.6.5'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
-#gem 'sqlite3'
+# Use devise for Facebook auth
+gem 'devise'
+# Use omniauth for Facebook auth
+gem 'omniauth-facebook'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
