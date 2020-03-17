@@ -34,6 +34,14 @@
             <li class="nav-item">
               <h2><%= link_to "About Us", about_us_contact_path %></h2>
             </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+              <% unless current_user %>
+                <h2><%= link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path %></h2>
+              <% else %>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>
