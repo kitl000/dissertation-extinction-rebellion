@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="development" uuid="ebc8b016-4f42-49c0-9611-5a5a0d7be291">
+    <data-source name="development" uuid="f5830e3a-8f16-4566-b900-0ea35485b269">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <auth-required>false</auth-required>
+      <secret-storage>forget</secret-storage>
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails extinction-rebellion: development" uuid="45e1eac6-5608-4420-b1a5-61b46860833c">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails extinction-rebellion: test" uuid="a3ec204a-ea87-436d-9269-3adaf8eff9be">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
       <schema-mapping />
     </data-source>
   </component>
