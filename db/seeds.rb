@@ -52,17 +52,35 @@ pages.each do |page|
       street = nil
       zip = nil
     end
-    Event.create(
-        title: event['name'],
-        image: picture['data']['url'],
-        start_time: event['start_time'],
-        end_time: event['end_time'],
-        description: event['description'],
-        place_name: place_name,
-        lat: lat,
-        long: long,
-        street: street,
-        zip: zip
-    )
+    existing_event = Event.find_by(id: event['id'])
+    if existing_event!=nil
+      existing_event.update(
+          id: event['id'],
+          title: event['name'],
+          image: picture['data']['url'],
+          start_time: event['start_time'],
+          end_time: event['end_time'],
+          description: event['description'],
+          place_name: place_name,
+          lat: lat,
+          long: long,
+          street: street,
+          zip: zip
+      )
+    else
+      Event.new(
+          id: event['id'],
+          title: event['name'],
+          image: picture['data']['url'],
+          start_time: event['start_time'],
+          end_time: event['end_time'],
+          description: event['description'],
+          place_name: place_name,
+          lat: lat,
+          long: long,
+          street: street,
+          zip: zip
+      )
+    end
   end
-end
+  end
