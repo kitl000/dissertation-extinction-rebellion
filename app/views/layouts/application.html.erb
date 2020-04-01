@@ -33,7 +33,7 @@
             </li>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-              <h2><%= link_to "Event", products_path %></h2>
+              <h2><%= link_to "Events", events_path %></h2>
             </li>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
@@ -41,7 +41,7 @@
             </li>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-            <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
+            <%= form_with(url: events_path, method: 'get', local: true) do |form| %>
               <%= form.text_field :q, id: 'q', value: params[:q] %>
               <%= form.submit 'Search' %>
             <% end %>

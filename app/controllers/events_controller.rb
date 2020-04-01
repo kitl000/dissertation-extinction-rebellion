@@ -2,16 +2,21 @@ require 'koala'
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   helper_method :synch_all_events
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    if params[:q]
+      search_term = params[:q]
+      @events = Event.search(search_term)
+    else
+      @events = Event.all
+    end
   end
-
-  # GET /events/1
-  # GET /events/1.json
+  # GET /products/1
+  # GET /products/1.json
   def show
   end
 
