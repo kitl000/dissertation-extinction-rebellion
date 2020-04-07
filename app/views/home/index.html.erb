@@ -7,85 +7,24 @@
   <h1 class="mt-4 mb-3">Rebels are organising meetings, talks, events and actions all the time and you can get involved.
   </h1>
 
-  </div>
 
-  <br><br>
+  <%if notice %>
+  <aside id="notice"><%=notice %></aside>
+    <%end %>
+  <h1> Some Events Here</h1>
 
-  <!-- Event One -->
-  <div class="row">
-    <div class="col-4">
-      <a href="#">
-        <img class="img-fluid md-1" src="http://placehold.it/300x150" alt="">
-      </a>
-    </div>
-    <div class="col-8">
-      <h4>XR London Weekly meeting</h4>
-      <p>20.20.2020, 18:30 - 20:30</p>
-      <p>Location, London, United Kingdom</p>
-      <a class="btn btn-primary" href="#">View more
-      </a>
-    </div>
-  </div>
-  <!-- /.row -->
+  <ul class="catalog">
+    <%@events.each do |event| %>
+    <li>
+      <%=image_tag(event.image) %>
+      <h2><%=event.title %></h2>
+      <p>
+        <%=sanitize(event.description) %>
+      </p>
+    </li>
+    <% end %>
+  </ul>
 
-  <hr>
-
-  <!-- Event Two -->
-  <div class="row">
-    <div class="col-4">
-      <a href="#">
-        <img class="img-fluid md-1" src="http://placehold.it/300x150" alt="">
-      </a>
-    </div>
-    <div class="col-8">
-      <h4>XR London Weekly meeting</h4>
-      <p>20.20.2020, 18:30 - 20:30</p>
-      <p>Location, London, United Kingdom</p>
-      <a class="btn btn-primary" href="#" class="btn pull-left">View more
-      </a>
-    </div>
-  </div>
-  <!-- /.row -->
-
-  <hr>
-
-  <!-- Event Three -->
-  <div class="row">
-    <div class="col-4">
-      <a href="#">
-        <img class="img-fluid md-1" src="http://placehold.it/300x150" alt="">
-      </a>
-    </div>
-    <div class="col-8">
-      <h4>XR London Weekly meeting</h4>
-      <p>20.20.2020, 18:30 - 20:30</p>
-      <p>Location, London, United Kingdom</p>
-      <a class="btn btn-primary" href="#" class="btn pull-left">View more
-      </a>
-    </div>
-  </div>
-  <!-- /.row -->
-
-  <hr>
-
-  <!-- Event Four -->
-  <div class="row">
-    <div class="col-4">
-      <a href="#">
-        <img class="img-fluid md-1" src="http://placehold.it/300x150" alt="">
-      </a>
-    </div>
-    <div class="col-8">
-      <h4>XR London Weekly meeting</h4>
-      <p>20.20.2020, 18:30 - 20:30</p>
-      <p>Location, London, United Kingdom</p>
-      <a class="btn btn-primary" href="#" class="btn pull-left">View more
-      </a>
-    </div>
-  </div>
-  <!-- /.row -->
-
-  <hr>
 
 </div>
 <!-- /.container -->
