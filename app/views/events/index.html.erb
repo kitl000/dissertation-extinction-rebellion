@@ -3,7 +3,7 @@
 <h1>Events</h1>
 
 </div>
-<button>Test</button>
+<%= button_to "Refresh All Events", { :controller => "events", :action => "synch_all_events"}, class: 'btn btn-danger' %>
 <br><br>
 
 <table>

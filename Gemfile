@@ -67,5 +67,9 @@ gem 'koala'
 # For authentication
 gem 'devise'
 
+# For Google Maps integration
+gem 'gmaps4rails'
+
 # For authorization
 gem 'cancancan', '~> 1.10'
+
