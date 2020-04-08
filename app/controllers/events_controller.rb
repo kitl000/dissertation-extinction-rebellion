@@ -2,7 +2,7 @@ require 'koala'
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   helper_method :synch_all_events
 
   # GET /events
@@ -56,8 +56,8 @@ class EventsController < ApplicationController
           street = nil
           zip = nil
         end
-        existing_event = Event.find_by(id: id)
-        if existing_event==nil
+        existing_event = Event.find_by(id: event['id'])
+        if existing_event!=nil
           existing_event.update(
               id: event['id'],
               title: event['name'],
