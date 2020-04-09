@@ -14,6 +14,9 @@ default: &default
 development:
   <<: *default
   database: myapp_development
+  username: postgres
+  password: admin
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,7 +24,10 @@ development:
 test:
   <<: *default
   database: myapp_test
+  username: postgres
+  password: admin
 
+production:
   <<: *default
   database: myapp_production
   username: myapp

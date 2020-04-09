@@ -6,95 +6,48 @@
   <div class="speech">
   <h1 class="mt-4 mb-3">Rebels are organising meetings, talks, events and actions all the time and you can get involved.
   </h1>
-  </div>
 
-  <br><br>
 
-  <!-- Event One -->
-  <div class="row">
-    <div class="col-4">
-      <a href="#">
-        <img class="img-fluid md-1" src="http://placehold.it/300x150" alt="">
-      </a>
-    </div>
-    <div class="col-8">
-      <h4>XR London Weekly meeting</h4>
-      <p>20.20.2020, 18:30 - 20:30</p>
-      <p>Location, London, United Kingdom</p>
-      <a class="btn btn-primary" href="#">View more
-      </a>
-    </div>
-  </div>
-  <!-- /.row -->
+  <%if notice %>
+  <aside id="notice"><%=notice %></aside>
+    <%end %>
+  <h1> Some Events Here</h1>
 
-  <hr>
+  <ul class="catalog">
+    <%@events.each do |event| %>
+    <li>
+      <%=image_tag(event.image) %>
+      <h2><%=event.title %></h2>
+      <p>
+        <%=sanitize(event.description) %>
+      </p>
+    </li>
+    <% end %>
+  </ul>
 
-  <!-- Event Two -->
-  <div class="row">
-    <div class="col-4">
-      <a href="#">
-        <img class="img-fluid md-1" src="http://placehold.it/300x150" alt="">
-      </a>
-    </div>
-    <div class="col-8">
-      <h4>XR London Weekly meeting</h4>
-      <p>20.20.2020, 18:30 - 20:30</p>
-      <p>Location, London, United Kingdom</p>
-      <a class="btn btn-primary" href="#" class="btn pull-left">View more
-      </a>
-    </div>
-  </div>
-  <!-- /.row -->
-
-  <hr>
-
-  <!-- Event Three -->
-  <div class="row">
-    <div class="col-4">
-      <a href="#">
-        <img class="img-fluid md-1" src="http://placehold.it/300x150" alt="">
-      </a>
-    </div>
-    <div class="col-8">
-      <h4>XR London Weekly meeting</h4>
-      <p>20.20.2020, 18:30 - 20:30</p>
-      <p>Location, London, United Kingdom</p>
-      <a class="btn btn-primary" href="#" class="btn pull-left">View more
-      </a>
-    </div>
-  </div>
-  <!-- /.row -->
-
-  <hr>
-
-  <!-- Event Four -->
-  <div class="row">
-    <div class="col-4">
-      <a href="#">
-        <img class="img-fluid md-1" src="http://placehold.it/300x150" alt="">
-      </a>
-    </div>
-    <div class="col-8">
-      <h4>XR London Weekly meeting</h4>
-      <p>20.20.2020, 18:30 - 20:30</p>
-      <p>Location, London, United Kingdom</p>
-      <a class="btn btn-primary" href="#" class="btn pull-left">View more
-      </a>
-    </div>
-  </div>
-  <!-- /.row -->
-
-  <hr>
 
 </div>
 <!-- /.container -->
 
 <div class="container">
   <!--Google map-->
-  <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
-   <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-          style="border:0" allowfullscreen></iframe>
-    </div>
+  <div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
+  </div>
+
+  <script type="text/javascript">
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers(<%=raw @events_default.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+      });
+  </script>
+
+ <!-- <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+    <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+         style="border:0" allowfullscreen></iframe>
+    # </div>-->
 
   <br>
 
