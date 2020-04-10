@@ -56,7 +56,12 @@ body {
 footer {
     background-color: black;
     position: absolute;
+    color: #f0f0f0;
     left: 0;
     right: 0;
     width: 100%;
+}
+
+footer a {
+    color: #fff;
 }
