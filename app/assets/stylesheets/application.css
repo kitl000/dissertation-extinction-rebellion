@@ -24,18 +24,27 @@ body {
     vertical-align: middle;
 }
 
+.navbar-nav.ml-auto li a {
+    color: black;
+    font-weight: bold;
+}
+
+.navbar-nav.ml-auto li  a:hover {
+    color: #fff !important;
+}
+
 .nav-item {
     margin-right: 40px;
 }
 
-.carousel-item {
-    height: 65vh;
-    min-height: 300px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    max-width: 100%;
+    background-image: url("masthead.jpg");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .speech {
