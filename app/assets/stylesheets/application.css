@@ -21,8 +21,11 @@ body {
     /* Modify the backgorund color */
 .navbar {
     background-color: #14ab37;
-    text-transform:uppercase;
     vertical-align: middle;
+}
+
+.nav-item {
+    margin-right: 40px;
 }
 
 .carousel-item {

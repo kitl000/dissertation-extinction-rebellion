@@ -24,7 +24,6 @@
 
   <header>
     <nav class="navbar navbar-expand-lg static-top">
-      <div class="container">
         <a class="navbar-brand" href="#">
           <%= image_tag ("logo.png") %>
         </a>
@@ -34,47 +33,43 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <h2><%= link_to "Home", home_index_path %></h2>
+              <h3><%= link_to "Home", home_index_path %></h3>
             </li>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-              <h2><%= link_to "Events", events_path %></h2>
+              <h3><%= link_to "Events", events_path %></h3>
             </li>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-              <h2><%= link_to "Contact", about_us_contact_path %></h2>
+              <h3><%= link_to "Contact", about_us_contact_path %></h3>
             </li>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item">
-            <%= form_with(url: events_path, method: 'get', local: true) do |form| %>
-              <%= form.text_field :q, id: 'q', value: params[:q] %>
-              <%= form.submit 'Search' %>
-            <% end %>
-            </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
+            <li>
+              <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+                <h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+                <h3><%= link_to('Login', new_user_session_path) %></h3>
               </li>
             <% end %>
             </li>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
               <% unless current_user %>
-                <h2><%= link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path %></h2>
+                <h3><%= link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path %></h3>
               <% else %>
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                <h3><%= link_to 'Logout', destroy_user_session_path, method: :delete %></h3>
               <% end %>
             </li>
+            <li class="nav-item">
+              <h3><%= form_with(url: events_path, method: 'get', local: true) do |form| %></h3>
+                  <%= form.text_field :q, id: 'q', value: params[:q] %>
+                  <%= form.submit 'Search' %>
+                <% end %>
+                </li>
           </ul>
         </div>
       </div>
     </nav>
+
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
