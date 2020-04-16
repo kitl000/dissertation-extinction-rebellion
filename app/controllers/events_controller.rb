@@ -72,7 +72,7 @@ class EventsController < ApplicationController
               zip: zip
           )
         else
-          Event.new(
+          Event.create(
               id: event['id'],
               title: event['name'],
               image: picture['data']['url'],
