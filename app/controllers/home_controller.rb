@@ -9,6 +9,6 @@ class HomeController < ApplicationController
 
   def index
     load_events
-    @events = Event.order(:title)
+    @events = Event.where('start_time >= ?', Date.today).order(:start_time)
   end
 end

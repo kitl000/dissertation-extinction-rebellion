@@ -1,4 +1,5 @@
 require 'koala'
+require 'database_cleaner'
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
@@ -8,17 +9,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    if params[:q]
-      search_term = params[:q]
-      @events = Event.search(search_term)
-    else
-      @events = Event.all
+    @events = Event.all
+    @search = params["search"]
+    if @search.present?
+      @title = @search["title"]
+      @events = Event.where("title ILIKE ?", "%#{@title}%")
     end
   end
-  # GET /products/1
-  # GET /products/1.json
-  def show
-  end
+
 
   # GET /events/new
   def new
@@ -72,7 +70,7 @@ class EventsController < ApplicationController
               zip: zip
           )
         else
-          Event.new(
+          Event.create(
               id: event['id'],
               title: event['name'],
               image: picture['data']['url'],
