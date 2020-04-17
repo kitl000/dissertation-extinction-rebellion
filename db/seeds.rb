@@ -58,10 +58,9 @@ pages.each do |page|
       city = nil
       zip = nil
     end
-    existing_event = Event.find_by(id: event['id'])
+    existing_event = Event.find_by(title: event['name'])
     if existing_event!=nil
     existing_event.update(
-        id: event['id'],
         title: event['name'],
         image: picture['data']['url'],
         start_time: event['start_time'],
@@ -76,7 +75,6 @@ pages.each do |page|
         )
     else
       Event.create(
-          id: event['id'],
           title: event['name'],
           image: picture['data']['url'],
           start_time: event['start_time'],

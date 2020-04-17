@@ -12,8 +12,8 @@ class EventsController < ApplicationController
     @events = Event.all
     @search = params["search"]
     if @search.present?
-      @title = @search["title"]
-      @events = Event.where("title ILIKE ?", "%#{@title}%")
+    @title = @search["title"]
+    @events = Event.where("title ILIKE ?", "%#{@title}%")
     end
   end
 
@@ -24,6 +24,7 @@ class EventsController < ApplicationController
   end
 
   def synch_all_events
+    DatabaseCleaner.clean_with(:truncation)
     @graph = Koala::Facebook::API.new('EAAInkjqsD4UBAGdYpyowdWFeauzzcnZC6ChN4RoU4zMW4JrpoCCsSO2VxtsadanLusG6zz2JUAqkOIfHaephOQEiAJeodc26jnDWBkUWHoIvpin92r2RDYWcXrqESC08IXa5ZAEhLIbjHkEtZCgdF29ZAp1QUfGsWzaPMDlSAgZDZD')
     pages = @graph.get_connections('me','accounts')
 
@@ -40,6 +41,7 @@ class EventsController < ApplicationController
             lat = location['latitude']
             long = location['longitude']
             street = location['street']
+            city = location['city']
             zip = location['zip']
           else
             lat = nil
@@ -54,24 +56,25 @@ class EventsController < ApplicationController
           street = nil
           zip = nil
         end
-        existing_event = Event.find_by(id: event['id'])
+        existing_event = Event.find_by(title: event['title'])
         if existing_event!=nil
-          existing_event.update(
-              id: event['id'],
-              title: event['name'],
-              image: picture['data']['url'],
-              start_time: event['start_time'],
-              end_time: event['end_time'],
-              description: event['description'],
-              place_name: place_name,
-              lat: lat,
-              long: long,
-              street: street,
-              zip: zip
-          )
+         existing_event.update(
+             title: event['name'],
+             image: picture['data']['url'],
+             start_time: event['start_time'],
+             end_time: event['end_time'],
+             description: event['description'],
+             place_name: place_name,
+             lat: lat,
+             long: long,
+             street: street,
+             city: city,
+             zip: zip,
+             place_list: city
+
+         )
         else
           Event.create(
-              id: event['id'],
               title: event['name'],
               image: picture['data']['url'],
               start_time: event['start_time'],
@@ -81,11 +84,14 @@ class EventsController < ApplicationController
               lat: lat,
               long: long,
               street: street,
-              zip: zip)
+              city: city,
+              zip: zip,
+              place_list: city
+              )
         end
 
       end
-    end
+     end
   end
 
   # GET /events/1/edit
