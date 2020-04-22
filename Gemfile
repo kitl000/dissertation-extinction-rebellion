@@ -72,9 +72,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # For interacting with Facebook API
 gem 'koala'
 
-# For authentication
-gem 'devise'
-
 # For Google Maps integration
 gem 'gmaps4rails'
 

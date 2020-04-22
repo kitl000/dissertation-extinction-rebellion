@@ -24,7 +24,6 @@
 
   <header>
     <nav class="navbar navbar-expand-lg static-top">
-      <div class="container">
         <a class="navbar-brand" href="#">
           <%= image_tag ("logo.png") %>
         </a>
@@ -34,19 +33,35 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <h2><%= link_to "Home", home_index_path %></h2>
+              <h3 class="nav-link"><%= link_to "Home", home_index_path %></h3>
             </li>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-              <h2><%= link_to "Events", events_path %></h2>
+              <h3 class="nav-link"><%= link_to "Events", events_path %></h3>
             </li>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-              <h2><%= link_to "Contact", about_us_contact_path %></h2>
+              <h3 class="nav-link"><%= link_to "Contact", about_us_contact_path %></h3>
             </li>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <h3 class="nav-link"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <h3 class="nav-link"><%= link_to('Login', new_user_session_path) %></h3>
+              </li>
+            <% end %>
+            </li>
             <li class="nav-item">
-              <%= form_with(url: events_path, method: "get", local: true) do %>
+              <% unless current_user %>
+                <h3 class="nav-link"><%= link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path %></h3>
+              <% else %>
+                <h3 class="nav-link"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></h3>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <h3><%= form_with(url: events_path, method: "get", local: true) do %></h3>
                 <%= label_tag(:search, "Search:") %>
                 <%= text_field_tag(:search) %>
                 <% $places.each do |p| %>
@@ -55,71 +70,18 @@
                 <% end %>
                 <%= submit_tag("Search") %>
               <% end %>
-            </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to('Login', new_user_session_path, class: "nav-link") %>
-              </li>
-            <% end %>
-            </li>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item">
-              <% unless current_user %>
-                <h2><%= link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path %></h2>
-              <% else %>
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-              <% end %>
-            </li>
+          </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>First Slide</h3>
-            <p>This is a description for the first slide.</p>
-          </div>
-        </div>
-        <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
-            <p>This is a description for the second slide.</p>
-          </div>
-        </div>
-        <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Third Slide</h3>
-            <p>This is a description for the third slide.</p>
-          </div>
+    <div class="masthead">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </header>
+  </div>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>

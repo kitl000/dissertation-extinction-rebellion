@@ -3,6 +3,8 @@ require 'database_cleaner'
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  # load_and_authorize_resource
+
   #before_action :authenticate_user!
   helper_method :synch_all_events
 
@@ -68,7 +70,7 @@ class EventsController < ApplicationController
         if existing_event!=nil
          existing_event.update(
              title: event['name'],
-             image: picture['data']['url'],
+             image: image,
              start_time: event['start_time'],
              end_time: event['end_time'],
              description: event['description'],
@@ -82,8 +84,9 @@ class EventsController < ApplicationController
          )
         else
           Event.create(
+              id: event['id'],
               title: event['name'],
-              image: picture['data']['url'],
+              image: image,
               start_time: event['start_time'],
               end_time: event['end_time'],
               description: event['description'],

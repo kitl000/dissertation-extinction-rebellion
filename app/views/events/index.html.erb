@@ -1,8 +1,9 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
 
-</div>
 <%= button_to "Refresh All Events", { :controller => "events", :action => "synch_all_events"}, class: 'btn btn-danger' %>
 <br><br>
 
@@ -49,3 +50,5 @@
 <br>
 
 <%= link_to 'New Event', new_event_path %>
+
+</div>
