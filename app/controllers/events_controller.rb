@@ -9,14 +9,17 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
     @search = params["search"]
     if @search.present?
-    @title = @search["title"]
-    @events = Event.where("title ILIKE ?", "%#{@title}%")
+      @events = Event.where("title ILIKE ?", "%#{@search}%")
+    else
+      @events = Event.all
+    end
+    @city = params["city"]
+    if @city.present?
+      @events = @events.filter{|e| e.city == @city}
     end
   end
-
 
   # GET /events/new
   def new
@@ -57,6 +60,11 @@ class EventsController < ApplicationController
           zip = nil
         end
         existing_event = Event.find_by(title: event['title'])
+        if(picture['data']!=nil)
+          image = picture['data']['url']
+        else
+          image = ''
+        end
         if existing_event!=nil
          existing_event.update(
              title: event['name'],
@@ -69,8 +77,7 @@ class EventsController < ApplicationController
              long: long,
              street: street,
              city: city,
-             zip: zip,
-             place_list: city
+             zip: zip
 
          )
         else
@@ -85,8 +92,7 @@ class EventsController < ApplicationController
               long: long,
               street: street,
               city: city,
-              zip: zip,
-              place_list: city
+              zip: zip
               )
         end
 
