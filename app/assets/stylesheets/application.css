@@ -37,32 +37,43 @@ body {
     margin-right: 40px;
 }
 
-.masthead {
-    height: 100vh;
-    min-height: 500px;
-    max-width: 100%;
-    background-image: url("masthead.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.style_image {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
 }
 
-.speech {
+.homepage {
     text-align: center;
 }
 
+.catalog {
+    list-style-type: none;
+    padding: 20px 20px;
+}
+
+hr {
+    border: 1px solid black;
+}
 .map-container{
     overflow:hidden;
     padding-bottom:56.25%;
     position:relative;
     height:0;
 }
+
 .map-container iframe{
     left:0;
     top:0;
     height:100%;
     width:100%;
     position:absolute;
+}
+
+.map {
+    text-align: center;
+    border: black;
 }
 
 footer {

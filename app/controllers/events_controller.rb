@@ -8,6 +8,8 @@ class EventsController < ApplicationController
   #before_action :authenticate_user!
   helper_method :synch_all_events
 
+  include Pagy::Backend
+
   # GET /events
   # GET /events.json
   def index
@@ -17,10 +19,11 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
-    @city = params["city"]
+    @city = params["city"].sub("''","")
     if @city.present?
-      @events = @events.filter{|e| e.city == @city}
+      @events = @events.where("city ILIKE ?", @city)
     end
+      @pagy, @events = pagy(@events, page: params[:page], items: 9)
   end
 
   # GET /events/new

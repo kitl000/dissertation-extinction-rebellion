@@ -1,4 +1,3 @@
-<div class="container">
 
 <p id="notice"><%= notice %></p>
 
@@ -47,8 +46,10 @@
   </tbody>
 </table>
 
+<%= pagy_nav(@pagy).html_safe %>
+
 <br>
 
 <%= link_to 'New Event', new_event_path %>
 
-</div>
+<hr>
