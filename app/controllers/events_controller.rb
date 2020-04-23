@@ -2,7 +2,7 @@ require 'koala'
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   #before_action :authenticate_user!
   helper_method :synch_all_events
