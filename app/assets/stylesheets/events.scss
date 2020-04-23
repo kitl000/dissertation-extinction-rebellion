@@ -2,11 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 table {
-  width: 100%;
   border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+table tr {
+  background: white;
+  border-bottom: 1px solid
+}
+table th, table td {
+  padding: 10px 20px;
 }
 
-table, th, td {
-  border: 1px solid black;
+/* Simple CSS for scrollable table on mobile */
+table {
+  min-width: 800px;
 }

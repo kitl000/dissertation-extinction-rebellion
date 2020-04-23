@@ -7,6 +7,8 @@ class EventsController < ApplicationController
   #before_action :authenticate_user!
   helper_method :synch_all_events
 
+  include Pagy::Backend
+
   # GET /events
   # GET /events.json
   def index
@@ -16,6 +18,7 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
+    @pagy, @events = pagy(Event.all, page: params[:page], items: 9)
   end
   # GET /products/1
   # GET /products/1.json
