@@ -1,7 +1,7 @@
 <!-- Page Content -->
 <div class="container">
-
-  <br><br>
+  <br>
+  <br>
   <!-- Page Heading/Breadcrumbs -->
   <div class="homepage">
 
@@ -10,7 +10,6 @@
     <%end %>
 
   <h1> Upcoming Events </h1>
-
   <ul class="catalog">
     <%@events.each do |event| %>
     <li>
@@ -18,6 +17,8 @@
       <h2><%=event.title %></h2>
       <p>
         <%=sanitize(event.description) %>
+        <%=event.start_time %>
+        <%=event.place_name %>
       </p>
       <p><%= event.place_name %></p>
     </li>
@@ -42,7 +43,6 @@
           handler.fitMapToBounds();
       });
   </script>
-
   <br>
 
   <%= pagy_nav(@pagy).html_safe %>
@@ -89,4 +89,4 @@
 <!--  </form>-->
 </div>
 
-<br>
+<br/>

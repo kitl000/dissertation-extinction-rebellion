@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 
   def index
     load_events
-    @events = Event.order(:title)
-    @pagy, @events = pagy(Event.all, page: params[:page], items: 8)
+    @pagy, @events = pagy(Event.where('start_time >= ?', Date.today).order(:start_time),
+                          page: params[:page], items: 8)
   end
 end
