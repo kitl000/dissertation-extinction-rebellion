@@ -56,6 +56,7 @@ body {
 hr {
     border: 1px solid black;
 }
+
 .map-container{
     overflow:hidden;
     padding-bottom:56.25%;
@@ -84,7 +85,17 @@ footer {
     right: 0;
     width: 100%;
 }
+a:link
+{
+    color:#FFFFFF;
+}
 
-footer a {
-    color: #fff;
+a:visited
+{
+    color:#FFFFFF;
+}
+
+a:hover
+{
+    color:#FFFFFF;
 }

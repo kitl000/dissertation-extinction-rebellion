@@ -51,6 +51,7 @@ class EventsController < ApplicationController
             street = location['street']
             city = location['city']
             zip = location['zip']
+            # links
           else
             lat = nil
             long = nil
@@ -83,7 +84,7 @@ class EventsController < ApplicationController
              street: street,
              city: city,
              zip: zip
-
+         # link
          )
         else
           Event.create(
