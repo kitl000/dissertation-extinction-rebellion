@@ -16,25 +16,55 @@
 
 body {
     margin: 0 auto;
+    color: black;
 }
 
-    /* Modify the backgorund color */
 .navbar {
-    background-color: #14ab37;
+    background-color: #80dfff;
     vertical-align: middle;
 }
 
+/*Navbar logo*/
+.navbar-brand {
+    background-color: #80dfff;
+}
+
+/*Navbar text*/
 .navbar-nav.ml-auto li a {
     color: black;
     font-weight: bold;
+    font-family: "Franklin Gothic Medium";
+    background-color: #80dfff;
+    text-decoration: none;
 }
 
-.navbar-nav.ml-auto li  a:hover {
-    color: #fff !important;
+/*Navbar text hover*/
+.navbar-nav.ml-auto li a:hover {
+    color: white;
+}
+
+/*Second bar text*/
+.nav.justify-content-center li a {
+    color: black;
+    font-weight: bold;
+    font-family: "Franklin Gothic Medium";
+    background-color: white;
+    text-decoration: none;
+}
+
+/*Second bar hover*/
+.nav.justify-content-center li a:hover {
+    color: #80dfff;
 }
 
 .nav-item {
     margin-right: 40px;
+}
+
+.image {
+    position: relative;
+    text-align: center;
+    color: white;
 }
 
 .style_image {
@@ -42,6 +72,24 @@ body {
     top: 0;
     width: 100%;
     height: auto;
+}
+
+.caption {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 90%;
+    bottom: 10%;
+    font-size: 68px;
+    font-weight: bold;
+    font-family: "Franklin Gothic Medium";
+}
+
+.speech {
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    font-family: Cambria;
 }
 
 .homepage {
@@ -57,19 +105,19 @@ hr {
     border: 1px solid black;
 }
 
-.map-container{
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
+.map-container {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
 }
 
-.map-container iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
+.map-container iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
 .map {
@@ -85,17 +133,25 @@ footer {
     right: 0;
     width: 100%;
 }
-a:link
-{
-    color:#FFFFFF;
+
+footer a:link {
+    color: #FFFFFF;
 }
 
-a:visited
-{
-    color:#FFFFFF;
+footer a:visited {
+    color: #FFFFFF;
 }
 
-a:hover
-{
-    color:#FFFFFF;
+footer a:hover {
+    color: #FFFFFF;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
 }

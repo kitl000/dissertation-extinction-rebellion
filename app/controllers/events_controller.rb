@@ -2,10 +2,10 @@ require 'koala'
 require 'database_cleaner'
 
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  # load_and_authorize_resource
+  load_and_authorize_resource
 
-  #before_action :authenticate_user!
   helper_method :synch_all_events
 
   include Pagy::Backend
@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
-    @city = params["city"].sub("''","")
+    # @city = params["city"].sub("''","")
     if @city.present?
       @events = @events.where("city ILIKE ?", @city)
     end
