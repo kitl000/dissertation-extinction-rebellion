@@ -19,9 +19,13 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
-    @city = params["city"].sub("''","")
+    @city = params["city"]
+    @category = params["category"]
     if @city.present?
       @events = @events.where("city ILIKE ?", @city)
+    end
+    if @category.present?
+      @events = @events.where("category ILIKE ?", @category)
     end
       @pagy, @events = pagy(@events, page: params[:page], items: 9)
   end
