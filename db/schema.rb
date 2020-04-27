@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_04_26_102132) do
     t.string "start_time"
     t.string "end_time"
     t.string "description"
+    t.string "place_name"
     t.bigint "lat"
     t.bigint "long"
     t.string "street"

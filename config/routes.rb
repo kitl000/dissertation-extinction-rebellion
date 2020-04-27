@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post 'events/synch_all_events' => 'events#synch_all_events'
   devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' }
   resources :users
-  resources :products
+  # resources :products
   get 'about_us/contact'
   post 'about_us/thank_you'
   get 'home/index'

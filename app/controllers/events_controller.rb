@@ -2,10 +2,10 @@ require 'koala'
 require 'database_cleaner'
 
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  # load_and_authorize_resource
+  load_and_authorize_resource
 
-  #before_action :authenticate_user!
   helper_method :synch_all_events
 
   include Pagy::Backend
@@ -55,6 +55,7 @@ class EventsController < ApplicationController
             street = location['street']
             city = location['city']
             zip = location['zip']
+            # links
           else
             lat = nil
             long = nil
@@ -87,7 +88,7 @@ class EventsController < ApplicationController
              street: street,
              city: city,
              zip: zip
-
+         # link
          )
         else
           Event.create(
