@@ -43,16 +43,22 @@
               <h3 class="nav-link"><%= link_to "CONTACT", about_us_contact_path %></h3>
             </li>
             <li class="nav-item">
-              <h3><%= form_with(url: events_path, method: "get", local: true) do %></h3>
-                  <%#= label_tag(:search) %>
-                  <%= text_field_tag(:search) %>
-                  <% $places.each do |p| %>
-                    <%= label(p, p) %>
-                    <%= check_box_tag(:city, p, false, {id: p}) %>
-                  <% end %>
-                  <%= submit_tag("Search") %>
-                <% end %>
-                </li>
+              <h3><%= form_with(url: events_path, method: "get", local: true) do |f|%></h3>
+                <%= label_tag(:search, "Search:") %>
+                <%= text_field_tag(:search) %>
+                  <%= f.select(:city, $places, :include_blank=> false) %>
+                <%# $places.each do |p| %>
+                  <%#=  label(p,p) %>
+                  <%#= check_box_tag(:city,p,false,{id:p}) %>
+                <%# end %>
+                  <%= f.select(:category, $categories, :include_blank=> false) %>
+                  <%# $categories.each do |p| %>
+                    <%#= label(p,p) %>
+                    <%#= check_box_tag(:category,p,false,{id:p}) %>
+                    <%#end %>
+                <%= submit_tag("Search") %>
+              <% end %>
+          </li>
           </ul>
         </div>
       </div>
