@@ -4,7 +4,6 @@ require 'database_cleaner'
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
 
   helper_method :synch_all_events
 
