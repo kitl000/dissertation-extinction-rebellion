@@ -76,8 +76,8 @@ gem 'koala'
 gem 'gmaps4rails'
 
 # For authorization
-gem 'cancancan', '~> 1.10'
-
-gem 'rolify'
+# gem 'cancancan', '~> 1.10'
+#
+# gem 'rolify'
 
 gem 'pagy'

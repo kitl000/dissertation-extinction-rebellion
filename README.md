@@ -16,6 +16,16 @@ Third party software required:
 - Heroku Account for production environment
 
 \
+Admin Account for testing website:
+- Username: admin@admin.com
+- Password: password
+
+\
+User Account for testing website:
+- Username: test@test.com
+- Password: test1234
+
+\
 List of gems and what they are for:
 - JQuery Rails - Provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 - Pg - Ruby interface to the PostgreSQL relational database management system.
