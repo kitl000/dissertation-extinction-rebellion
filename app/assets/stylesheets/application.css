@@ -29,6 +29,10 @@ body {
     background-color: #80dfff;
 }
 
+.navbar-brand:hover {
+    background-color: #80dfff;
+}
+
 /*Navbar text*/
 .navbar-nav.ml-auto li a {
     color: black;
