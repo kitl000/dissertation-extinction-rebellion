@@ -20,9 +20,9 @@
         <li>
           <%= image_tag(event.image) %>
           <h2><%= event.title %></h2>
-          <p><%= sanitize(event.description) %></p>
-          <p><%= event.start_time %></p>
-          <p><%= event.place_name %></p>
+          <p><strong>Description: </strong><%= sanitize(event.description) %></p>
+          <p><strong>Start time: </strong><%= event.start_time %></p>
+          <p><strong>Location: </strong><%= event.place_name %></p>
           <!--<p><%#= event.link-id %></p>-->
           <hr>
       <% end %>

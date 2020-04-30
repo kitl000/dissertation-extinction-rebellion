@@ -73,14 +73,10 @@
         <li class="nav-item">
           <h5 class="nav-link"><%= link_to('LOGIN', new_user_session_path) %></h5>
         </li>
-      <% end %>
-      </li>
-      <li class="nav-item">
-        <% unless current_user %>
+        <li class="nav-item">
           <h5 class="nav-link"><%= link_to 'LOGIN IN WITH FACEBOOK', user_facebook_omniauth_authorize_path %></h5>
-        <% else %>
-          <h5 class="nav-link"><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></h5>
-        <% end %>
+        </li>
+      <% end %>
       </li>
     </ul>
 </div>
