@@ -3,7 +3,7 @@ require 'database_cleaner'
 
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authenticate_admin, only: [:destroy, :edit, :update]
+  # before_action :authenticate_admin, only: [:destroy, :edit, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   helper_method :synch_all_events

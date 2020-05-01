@@ -74,7 +74,7 @@
           <h5 class="nav-link"><%= link_to('LOGIN', new_user_session_path) %></h5>
         </li>
         <li class="nav-item">
-          <h5 class="nav-link"><%= link_to 'LOGIN IN WITH FACEBOOK', user_facebook_omniauth_authorize_path %></h5>
+          <h5 class="nav-link"><%= link_to 'LOGIN IN WITH FACEBOOK', user_facebook_omniauth_authorize_path, target: :_blank %></h5>
         </li>
       <% end %>
       </li>
@@ -93,7 +93,6 @@
 
 <%= yield %>
 
-<a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
 
 <!-- Footer -->
 <footer class="page-footer font-small stylish-color-dark pt-4">
@@ -128,7 +127,7 @@
 
         <ul class="list-unstyled list-inline text-center py-2">
           <li class="list-inline-item">
-            <a href="https://chuffed.org/pay/campaign/62932" type="button" class="btn btn-success">Donate</a>
+            <a href="https://chuffed.org/pay/campaign/62932" target="_blank" type="button" class="btn btn-success">Donate</a>
           </li>
         </ul>
 
@@ -145,7 +144,7 @@
 
         <ul class="list-unstyled list-inline text-center py-2">
           <li class="list-inline-item">
-            <a href="https://actionnetwork.org/forms/newsletter-sign-up-17?source=direct_link&" type="button" class="btn btn-success">Sign
+            <a href="https://actionnetwork.org/forms/newsletter-sign-up-17?source=direct_link&" target="_blank" type="button" class="btn btn-success">Sign
               up</a>
           </li>
         </ul>
@@ -180,22 +179,22 @@
         <div class="text-center text-md-right">
           <ul class="list-unstyled list-inline">
             <li class="list-inline-item">
-              <a href="https://www.facebook.com/ExtinctionRebellion/" class="btn-floating btn-sm rgba-white-slight mx-1">
+              <a href="https://www.facebook.com/ExtinctionRebellion/" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="https://twitter.com/ExtinctionR" class="btn-floating btn-sm rgba-white-slight mx-1">
+              <a href="https://twitter.com/ExtinctionR" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="https://www.instagram.com/extinctionrebellion/" class="btn-floating btn-sm rgba-white-slight mx-1">
+              <a href="https://www.instagram.com/extinctionrebellion/" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
                 <i class="fab fa-instagram"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="https://www.youtube.com/channel/UCYThdLKE6TDwBJh-qDC6ICA" class="btn-floating btn-sm rgba-white-slight mx-1">
+              <a href="https://www.youtube.com/channel/UCYThdLKE6TDwBJh-qDC6ICA" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
                 <i class="fab fa-youtube"></i>
               </a>
             </li>
@@ -213,6 +212,8 @@
 
 </footer>
 <!-- Footer -->
+
+<a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
 
 </body>
 </html>
