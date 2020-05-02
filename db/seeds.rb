@@ -58,28 +58,27 @@ pages.each do |page|
       city = nil
       zip = nil
     end
-    existing_event = Event.find_by(title: event['name'])
+    existing_event = Event.find_by(fbid: event['id'])
     if(picture['data'] != nil)
       image = picture['data']['url']
     else
       image = ''
     end
+    escaped_name = Regexp.escape(event['name'])
+    if escaped_name.include? "Talk"
+      category = "Talk"
+    elsif escaped_name.include? "Meeting"
+      category = "Meeting"
+    elsif escaped_name.include? "March"
+      category = "March"
+    elsif escaped_name.include? "Workshop"
+      category = "Workshop"
+    else
+      category = "Other"
+    end
     if existing_event!=nil
       existing_event.update(
-          title: event['name'],
-          image: image,
-          start_time: event['start_time'],
-          end_time: event['end_time'],
-          description: event['description'],
-          place_name: place_name,
-          lat: lat,
-          long: long,
-          street: street,
-          city: city,
-          zip: zip
-          )
-    else
-      Event.create(
+          fbid: event['id'],
           title: event['name'],
           image: image,
           start_time: event['start_time'],
@@ -91,6 +90,23 @@ pages.each do |page|
           street: street,
           city: city,
           zip: zip,
+          category: category
+          )
+    else
+      Event.create(
+          fbid: event['id'],
+          title: event['name'],
+          image: image,
+          start_time: event['start_time'],
+          end_time: event['end_time'],
+          description: event['description'],
+          place_name: place_name,
+          lat: lat,
+          long: long,
+          street: street,
+          city: city,
+          zip: zip,
+          category: category
       )
     end
     end
