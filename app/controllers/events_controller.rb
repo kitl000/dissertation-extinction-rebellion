@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     if @category.present?
       @events = @events.where("category ILIKE ?", @category)
     end
-      @pagy, @events = pagy(@events, page: params[:page], items: 9)
+      @pagy, @events = pagy(@events, page: params[:page], items: 8)
   end
 
   # GET /events/new
