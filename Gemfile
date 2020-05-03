@@ -81,3 +81,5 @@ gem 'gmaps4rails'
 # gem 'rolify'
 
 gem 'pagy'
+
+gem 'sitemap_generator'
