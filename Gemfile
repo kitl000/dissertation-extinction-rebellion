@@ -83,3 +83,5 @@ gem 'gmaps4rails'
 gem 'pagy'
 
 gem 'sitemap_generator'
+
+gem 'mail_form'
