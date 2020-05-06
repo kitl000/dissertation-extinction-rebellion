@@ -1,30 +1,33 @@
 <!-- Page Content -->
 <div class="container">
-  <br>
-  <br>
+  <div class="speech">
+    <h3>Rebels are organising meetings, talks, events and actions all the time and you can get involved.
+    </h3>
+    <br>
+  </div>
+
   <!-- Page Heading/Breadcrumbs -->
   <div class="homepage">
 
-  <%if notice %>
-  <aside id="notice"><%=notice %></aside>
-    <%end %>
-
-  <h1> Upcoming Events </h1>
-  <ul class="catalog">
-    <%@events.each do |event| %>
-    <li>
-      <%=image_tag(event.image) %>
-      <h2><%=event.title %></h2>
-      <p>
-        <%=sanitize(event.description) %>
-        <%=event.start_time %>
-        <%=event.place_name %>
-      </p>
-      <p><%= event.place_name %></p>
-    </li>
-      <hr>
+    <% if notice %>
+      <aside id="notice"><%= notice %></aside>
     <% end %>
-  </ul>
+
+    <hr>
+
+    <ul class="catalog">
+      <% @events.each do |event| %>
+        <li>
+          <%= image_tag(event.image) %>
+          <h2><%= event.title %></h2>
+          <p><strong>Description: </strong><%= sanitize(event.description) %></p>
+          <p><strong>Start time: </strong><%= event.start_time %></p>
+          <p><strong>Location: </strong><%= event.place_name %></p>
+          <!--<p><%#= event.link-id %></p>-->
+          <hr>
+      <% end %>
+    </ul>
+  </div>
 
 </div>
 <!-- /.container -->
@@ -37,7 +40,7 @@
 
   <script type="text/javascript">
       handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      handler.buildMap({provider: {}, internal: {id: 'map'}}, function () {
           markers = handler.addMarkers(<%=raw @events_default.to_json %>);
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
@@ -49,44 +52,44 @@
 
   <br>
 
-<!--  Form -->
-<!--  <div class="homepage">-->
-<!--    <h1 class="mt-4 mb-3">JOIN THE REBELLION-->
-<!--    </h1>-->
-<!--  </div>-->
+  <!--  Form -->
+  <!--  <div class="homepage">-->
+  <!--    <h1 class="mt-4 mb-3">JOIN THE REBELLION-->
+  <!--    </h1>-->
+  <!--  </div>-->
 
-<!--  <br>-->
+  <!--  <br>-->
 
-<!--  <form>-->
-<!--    <div class="form-row">-->
-<!--      <div class="col">-->
-<!--        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="First Name" required>-->
-<!--      </div>-->
-<!--      <div class="col">-->
-<!--        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Last Name" required>-->
-<!--      </div>-->
-<!--      <div class="col">-->
-<!--        <div class="input-group">-->
-<!--          <div class="input-group-prepend">-->
-<!--            <span class="input-group-text" id="inputGroupPrepend2">@</span>-->
-<!--          </div>-->
-<!--          <input type="text" class="form-control" id="validationDefaultEmail" placeholder="Email" aria-describedby="inputGroupPrepend2" required>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    <div class="col">-->
-<!--      <button type="button" class="btn btn-primary btn-block" type="submit">Join</button>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="col-6">-->
-<!--    <div class="form-group">-->
-<!--      <div class="form-check">-->
-<!--        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>-->
-<!--        <label class="form-check-label" for="invalidCheck2">-->
-<!--          I give my consent to Extinction Rebellion to get in touch with me using the information I have provided in this form, for the purpose of news, update, and rebellion-->
-<!--        </label>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </form>-->
+  <!--  <form>-->
+  <!--    <div class="form-row">-->
+  <!--      <div class="col">-->
+  <!--        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="First Name" required>-->
+  <!--      </div>-->
+  <!--      <div class="col">-->
+  <!--        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Last Name" required>-->
+  <!--      </div>-->
+  <!--      <div class="col">-->
+  <!--        <div class="input-group">-->
+  <!--          <div class="input-group-prepend">-->
+  <!--            <span class="input-group-text" id="inputGroupPrepend2">@</span>-->
+  <!--          </div>-->
+  <!--          <input type="text" class="form-control" id="validationDefaultEmail" placeholder="Email" aria-describedby="inputGroupPrepend2" required>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    <div class="col">-->
+  <!--      <button type="button" class="btn btn-primary btn-block" type="submit">Join</button>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--  <div class="col-6">-->
+  <!--    <div class="form-group">-->
+  <!--      <div class="form-check">-->
+  <!--        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>-->
+  <!--        <label class="form-check-label" for="invalidCheck2">-->
+  <!--          I give my consent to Extinction Rebellion to get in touch with me using the information I have provided in this form, for the purpose of news, update, and rebellion-->
+  <!--        </label>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </form>-->
 </div>
 
 <br/>

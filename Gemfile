@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 # Use for tagging
-gem 'acts-as-taggable-on', '~> 5.0'
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -76,6 +76,12 @@ gem 'koala'
 gem 'gmaps4rails'
 
 # For authorization
-gem 'cancancan', '~> 1.10'
+# gem 'cancancan', '~> 1.10'
+#
+# gem 'rolify'
 
 gem 'pagy'
+
+gem 'sitemap_generator'
+
+gem 'mail_form'

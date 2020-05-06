@@ -1,0 +1,44 @@
+<div class="container">
+  <br>
+  <h1>Contact Us</h1>
+
+  <%= form_for @contact do |f| %>
+    <% if flash[:error].present? %>
+      <p> flash[:error]</p>
+    <% end %>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control", placeholder: "Enter Name", required: true %>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control", placeholder: "Enter Email", required: true %>
+        </div>
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <%= f.label :message %>
+            <%= f.text_area :message, class: "form-control", placeholder: "Enter Message", rows: 5 %>
+          </div>
+
+
+          <!--  <%#= f.label :nickname %> <br>-->
+          <%#= f.text_field :nickname, hint: 'leave this field blank' %>
+
+
+          <%= f.submit 'Send Message', class: "form_label" %>
+  <% end %>
+  </div>
+  </div>
+
+</br>
+
+  </div>

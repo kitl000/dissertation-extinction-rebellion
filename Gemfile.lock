@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/mbleigh/acts-as-taggable-on
+  revision: 6055f9618a004c5bfdf1740d5479f4885696b7ee
+  specs:
+    acts-as-taggable-on (6.5.0)
+      activerecord (>= 5.0, < 6.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,8 +49,6 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (5.0.0)
-      activerecord (>= 4.2.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     archive-zip (0.12.0)
@@ -55,7 +60,6 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.1)
-    cancancan (1.17.0)
     capybara (3.32.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -115,6 +119,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mail_form (1.8.0)
+      actionmailer (>= 5.0)
+      activemodel (>= 5.0)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
@@ -221,6 +228,8 @@ GEM
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    sitemap_generator (6.1.0)
+      builder (~> 3.0)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -257,10 +266,9 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  acts-as-taggable-on (~> 5.0)
+  acts-as-taggable-on!
   bootsnap (>= 1.1.0)
   byebug
-  cancancan (~> 1.10)
   capybara (>= 2.15)
   chromedriver-helper (= 1.2.0)
   coffee-rails (~> 4.2)
@@ -271,6 +279,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   koala
+  mail_form
   omniauth-facebook
   pagy
   pg
@@ -281,6 +290,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form
+  sitemap_generator
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

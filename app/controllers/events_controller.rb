@@ -2,10 +2,10 @@ require 'koala'
 require 'database_cleaner'
 
 class EventsController < ApplicationController
+  before_action :authenticate_user!
+  # before_action :authenticate_admin, only: [:destroy, :edit, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  # load_and_authorize_resource
 
-  #before_action :authenticate_user!
   helper_method :synch_all_events
 
   include Pagy::Backend
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     if @category.present?
       @events = @events.where("category ILIKE ?", @category)
     end
-      @pagy, @events = pagy(@events, page: params[:page], items: 9)
+      @pagy, @events = pagy(@events, page: params[:page], items: 8)
   end
 
   # GET /events/new
@@ -55,6 +55,7 @@ class EventsController < ApplicationController
             street = location['street']
             city = location['city']
             zip = location['zip']
+            # links
           else
             lat = nil
             long = nil
