@@ -8,10 +8,6 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
   get 'contacts/new'
 
-  get 'home/contact'
-
-  post 'home/thank_you'
-
   get 'home/index'
 
   root 'home#index'

@@ -2,8 +2,8 @@
 SitemapGenerator::Sitemap.default_host = "https://extinction-rebellion-project.herokuapp.com/"
 
 SitemapGenerator::Sitemap.create do
-  add 'home/contact'
-  add 'home/thank_you'
+  add 'contact/new'
+
   add 'home/index'
   # Put links creation logic here.
   #

@@ -20,17 +20,17 @@ body {
 }
 
 .navbar {
-    background-color: #80dfff;
+    background-color: #75d0f1;
     vertical-align: middle;
 }
 
 /*Navbar logo*/
 .navbar-brand {
-    background-color: #80dfff;
+    background-color: #75d0f1;
 }
 
 .navbar-brand:hover {
-    background-color: #80dfff;
+    background-color: #75d0f1;
 }
 
 /*Navbar text*/
@@ -38,7 +38,7 @@ body {
     color: black;
     font-weight: bold;
     font-family: "Franklin Gothic Medium";
-    background-color: #80dfff;
+    background-color: #75d0f1;
     text-decoration: none;
 }
 
@@ -47,19 +47,19 @@ body {
     color: white;
 }
 
-/*Second bar text*/
-.nav.justify-content-center li a {
-    color: black;
-    font-weight: bold;
-    font-family: "Franklin Gothic Medium";
-    background-color: white;
-    text-decoration: none;
-}
+/*!*Second bar text*!*/
+/*.nav.justify-content-center li a {*/
+/*    color: black;*/
+/*    font-weight: bold;*/
+/*    font-family: "Franklin Gothic Medium";*/
+/*    background-color: white;*/
+/*    text-decoration: none;*/
+/*}*/
 
-/*Second bar hover*/
-.nav.justify-content-center li a:hover {
-    color: #80dfff;
-}
+/*!*Second bar hover*!*/
+/*.nav.justify-content-center li a:hover {*/
+/*    color: #75d0f1;*/
+/*}*/
 
 .nav-item {
     margin-right: 40px;
@@ -93,7 +93,7 @@ body {
     text-align: center;
     width: 60%;
     margin: 0 auto;
-    font-family: Cambria;
+    font-family: 'Crimson Text', serif;
 }
 
 .homepage {
