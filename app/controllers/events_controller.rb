@@ -2,7 +2,7 @@ require 'koala'
 require 'database_cleaner'
 
 class EventsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   # before_action :authenticate_admin, only: [:destroy, :edit, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
@@ -21,6 +21,10 @@ class EventsController < ApplicationController
     end
     @city = params["city"]
     @category = params["category"]
+    @start_month = params["start_time"]
+    @index_month = Date::MONTHNAMES.index(@start_month)
+    @start_date = DateTime.new(2020,@index_month)
+    puts @start_date
     if @city.present?
       @events = @events.where("city ILIKE ?", @city)
     end
@@ -29,6 +33,7 @@ class EventsController < ApplicationController
     end
       @pagy, @events = pagy(@events, page: params[:page], items: 8)
   end
+
 
   # GET /events/new
   def new

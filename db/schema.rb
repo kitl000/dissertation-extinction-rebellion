@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2020_05_02_201106) do
     t.string "start_time"
     t.string "end_time"
     t.string "description"
-    t.string "place_name"
     t.bigint "lat"
     t.bigint "long"
     t.string "street"
@@ -82,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_05_02_201106) do
     t.string "provider"
     t.string "uid"
     t.text "image"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

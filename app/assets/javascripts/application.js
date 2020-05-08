@@ -16,6 +16,10 @@
 //= require_tree .
 //= require jquery3
 //= require gmaps/google
+//= require pickadate/picker
+//= require pickadate/picker.date
+//= require pickadate/picker.time
+//= require pickadate/translations/bg_BG
 
 $(document).ready(function(){
     $(window).scroll(function () {
@@ -33,3 +37,11 @@ $(document).ready(function(){
         return false;
     });
 });
+
+('.datepicker').pickadate({
+    format: 'mm-yyyy',
+    selectYears: true,
+    selectMonths: true
+});
+
+$(document).on('ready page:load', _ => $('.datepicker').datepicker());
