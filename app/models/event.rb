@@ -8,6 +8,7 @@ class Event < ApplicationRecord
       .map{|x| Date.parse(x).month}.uniq.sort
       .filter{|month| month!=nil&&month!=""}
       .map{|x| Date::MONTHNAMES[x] }
-
-
+  $start_years = self.distinct.pluck(:start_time)
+      .map{|y| Date.parse(y).year}.uniq.sort
+      .filter{|year| year!=nil&&year!=""}
 end

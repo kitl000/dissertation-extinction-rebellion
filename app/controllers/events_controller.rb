@@ -21,12 +21,8 @@ class EventsController < ApplicationController
     end
     @city = params["city"]
     @category = params["category"]
-    @start_month = params["start_time"]
-    @index_month = Date::MONTHNAMES.index(@start_month)
-    @start_date = DateTime.new(2020,@index_month)
-    @end_of_start_date = DateTime.new(2020,@index_month).next_day(30)
-    puts @start_date
-    puts @end_of_start_date
+    @start_month = params["start_month"]
+    @start_year = params["start_year"]
     if @city.present?
       @events = @events.where("city ILIKE ?", @city)
     end
@@ -34,7 +30,15 @@ class EventsController < ApplicationController
       @events = @events.where("category ILIKE ?", @category)
     end
     if @start_month.present?
+      @index_month = Date::MONTHNAMES.index(@start_month)
+      @start_date = DateTime.new(2020,@index_month)
+      @end_of_start_date = DateTime.new(2020,@index_month).next_month(1)
       @events = @events.where("start_time BETWEEN '#{@start_date}' AND '#{@end_of_start_date}'", @start_month)
+    end
+    if @start_year.present?
+      @start_year = DateTime.strptime(@start_year, '%Y')
+      @end_of_start_year = @start_year.next_year(1)
+      @events = @events.where("start_time BETWEEN '#{@start_year}' AND '#{@end_of_start_year}'", @start_year)
     end
       @pagy, @events = pagy(@events, page: params[:page], items: 8)
   end

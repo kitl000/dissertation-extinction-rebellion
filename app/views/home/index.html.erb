@@ -14,6 +14,16 @@
     <% end %>
 
     <hr>
+    <div class="side-content">
+      <h3><%= form_with(url: events_path, method: "get", local: true) do |f|%></h3>
+          <%= f.select(:city, $places, :include_blank=> false, prompt: 'Select a city') %>
+          <%= f.select(:category, $categories, :include_blank=> false, prompt: 'Select a category') %>
+          <%= f.select(:start_month, $start_months, :include_blank=> false, prompt: 'Select a month') %>
+          <%= f.select(:start_year, $start_years, :include_blank=> false, prompt: 'Select a year') %>
+          <%= submit_tag("Search") %>
+        <% end %>
+        </div>
+
 
     <ul class="catalog">
       <% @events.each do |event| %>
@@ -28,6 +38,8 @@
       <% end %>
     </ul>
   </div>
+
+
 
 </div>
 <!-- /.container -->
