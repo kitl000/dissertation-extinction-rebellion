@@ -24,12 +24,17 @@ class EventsController < ApplicationController
     @start_month = params["start_time"]
     @index_month = Date::MONTHNAMES.index(@start_month)
     @start_date = DateTime.new(2020,@index_month)
+    @end_of_start_date = DateTime.new(2020,@index_month).next_day(30)
     puts @start_date
+    puts @end_of_start_date
     if @city.present?
       @events = @events.where("city ILIKE ?", @city)
     end
     if @category.present?
       @events = @events.where("category ILIKE ?", @category)
+    end
+    if @start_month.present?
+      @events = @events.where("start_time BETWEEN '#{@start_date}' AND '#{@end_of_start_date}'", @start_month)
     end
       @pagy, @events = pagy(@events, page: params[:page], items: 8)
   end
