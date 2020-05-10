@@ -19,6 +19,8 @@ gem 'database_cleaner'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+#Use pickadate for date picker
+gem 'pickadate-rails'
 # Use simple_form for search
 gem 'simple_form'
 # Use Uglifier as compressor for JavaScript assets
