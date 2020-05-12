@@ -2,7 +2,7 @@ require 'koala'
 require 'database_cleaner'
 
 class EventsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   # before_action :authenticate_admin, only: [:destroy, :edit, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
@@ -21,14 +21,28 @@ class EventsController < ApplicationController
     end
     @city = params["city"]
     @category = params["category"]
+    @start_month = params["start_month"]
+    @start_year = params["start_year"]
     if @city.present?
       @events = @events.where("city ILIKE ?", @city)
     end
     if @category.present?
       @events = @events.where("category ILIKE ?", @category)
     end
+    if @start_month.present?
+      @index_month = Date::MONTHNAMES.index(@start_month)
+      @start_date = DateTime.new(2020,@index_month)
+      @end_of_start_date = DateTime.new(2020,@index_month).next_month(1)
+      @events = @events.where("start_time BETWEEN '#{@start_date}' AND '#{@end_of_start_date}'", @start_month)
+    end
+    if @start_year.present?
+      @start_year = DateTime.strptime(@start_year, '%Y')
+      @end_of_start_year = @start_year.next_year(1)
+      @events = @events.where("start_time BETWEEN '#{@start_year}' AND '#{@end_of_start_year}'", @start_year)
+    end
       @pagy, @events = pagy(@events, page: params[:page], items: 8)
   end
+
 
   # GET /events/new
   def new
@@ -69,14 +83,27 @@ class EventsController < ApplicationController
           street = nil
           zip = nil
         end
-        existing_event = Event.find_by(title: event['title'])
+        existing_event = Event.find_by(fbid: event['id'])
         if(picture['data']!=nil)
           image = picture['data']['url']
         else
           image = ''
         end
+        escaped_name = Regexp.escape(event['name'])
+        if escaped_name.include? "Talk"
+          category = "Talk"
+        elsif escaped_name.include? "Meeting"
+          category = "Meeting"
+        elsif escaped_name.include? "March"
+          category = "March"
+        elsif escaped_name.include? "Workshop"
+          category = "Workshop"
+        else
+          category = "Other"
+        end
         if existing_event!=nil
          existing_event.update(
+             fbid: event['id'],
              title: event['name'],
              image: image,
              start_time: event['start_time'],
@@ -87,12 +114,13 @@ class EventsController < ApplicationController
              long: long,
              street: street,
              city: city,
-             zip: zip
-         # link
+             zip: zip,
+             category: category
+
          )
         else
           Event.create(
-              id: event['id'],
+              fbid: event['id'],
               title: event['name'],
               image: image,
               start_time: event['start_time'],
@@ -103,12 +131,14 @@ class EventsController < ApplicationController
               long: long,
               street: street,
               city: city,
-              zip: zip
+              zip: zip,
+              category: category
               )
         end
 
       end
-     end
+    end
+    redirect_to events_path, notice: "Events Updated"
   end
 
   # GET /events/1/edit
