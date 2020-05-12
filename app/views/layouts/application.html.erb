@@ -43,6 +43,26 @@
             <li class="nav-item">
               <h3 class="nav-link"><%= link_to "CONTACT", contacts_new_path %></h3>
             </li>
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/ExtinctionRebellion/" target="_blank" class="btn-floating btn-md rgba-white-slight mx-1">
+                <i class="fab fa-facebook-f" style="font-size:24px"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://twitter.com/ExtinctionR" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fab fa-twitter" style="font-size:24px"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/extinctionrebellion/" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fab fa-instagram" style="font-size:24px"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.youtube.com/channel/UCYThdLKE6TDwBJh-qDC6ICA" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fab fa-youtube" style="font-size:24px"></i>
+              </a>
+            </li>
             <li class="nav-item">
               <h3><%= form_with(url: events_path, method: "get", local: true) do |f|%></h3>
                 <%= label_tag(:search, "Search:") %>
