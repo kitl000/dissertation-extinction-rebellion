@@ -127,9 +127,7 @@
           sending XR a percentage of your sales. We do not endorse or create any merchandise and we will pursue and
           prosecute anyone who does. The Extinction Symbol was designed in 2011 by street artist ESP, who loans XR usage
           on the same basis: www.extinctionsymbol.info.   <%= link_to "(ADMIN CONTROL)", events_path %></p>
-        <% if current_user && current_user.admin %>
           <p><%= link_to('LOGOUT', destroy_user_session_path, method: :delete) %></p>
-          <% end %>
       </div>
       <!-- Grid column -->
 
