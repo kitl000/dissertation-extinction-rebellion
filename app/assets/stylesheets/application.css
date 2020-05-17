@@ -50,23 +50,26 @@ body {
     color: white;
 }
 
-/*!*Second bar text*!*/
-/*.nav.justify-content-center li a {*/
-/*    color: black;*/
-/*    font-weight: bold;*/
-/*    font-family: "Franklin Gothic Medium";*/
-/*    background-color: white;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*!*Second bar hover*!*/
-/*.nav.justify-content-center li a:hover {*/
-/*    color: #75d0f1;*/
-/*}*/
-
 .nav-item {
     margin-right: 40px;
 }
+
+.list-group {
+    margin:auto;
+    float:left;
+    padding: 20px;
+    border: 1px solid #dddcd8;
+    position: sticky;
+}
+
+.lead {
+
+    margin:auto;
+    left:0;
+    right:0;
+    padding-top:10%;
+}
+
 
 .image {
     position: relative;
@@ -89,7 +92,6 @@ body {
     bottom: 10%;
     font-size: 68px;
     font-weight: bold;
-    font-family: "Franklin Gothic Medium";
 }
 
 .speech {

@@ -1,3 +1,17 @@
+<div class="list-group">
+
+  <h2>Filter</h2>
+  <p><%= form_with(url: events_path, method: "get", local: true) do |f|%></p>
+      <p> <%= f.select(:city, $places, :include_blank=> false, prompt: 'Select a city') %></p>
+      <p> <%= f.select(:category, $categories, :include_blank=> false, prompt: 'Select a category') %></p>
+      <p><%= f.select(:start_month, $start_months, :include_blank=> false, prompt: 'Select a month') %></p>
+      <p><%= f.select(:start_year, $start_years, :include_blank=> false, prompt: 'Select a year') %></p>
+      <p> <%= submit_tag("Search") %><p>
+    <% end %>
+
+
+</div>
+
 <!-- Page Content -->
 <div class="container">
   <div class="speech">
@@ -14,16 +28,6 @@
     <% end %>
 
     <hr>
-    <div class="side-content">
-      <h3><%= form_with(url: events_path, method: "get", local: true) do |f|%></h3>
-          <%= f.select(:city, $places, :include_blank=> false, prompt: 'Select a city') %>
-          <%= f.select(:category, $categories, :include_blank=> false, prompt: 'Select a category') %>
-          <%= f.select(:start_month, $start_months, :include_blank=> false, prompt: 'Select a month') %>
-          <%= f.select(:start_year, $start_years, :include_blank=> false, prompt: 'Select a year') %>
-          <%= submit_tag("Search") %>
-        <% end %>
-        </div>
-
 
     <ul class="catalog">
       <% @events.each do |event| %>
@@ -64,44 +68,7 @@
 
   <br>
 
-  <!--  Form -->
-  <!--  <div class="homepage">-->
-  <!--    <h1 class="mt-4 mb-3">JOIN THE REBELLION-->
-  <!--    </h1>-->
-  <!--  </div>-->
 
-  <!--  <br>-->
-
-  <!--  <form>-->
-  <!--    <div class="form-row">-->
-  <!--      <div class="col">-->
-  <!--        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="First Name" required>-->
-  <!--      </div>-->
-  <!--      <div class="col">-->
-  <!--        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Last Name" required>-->
-  <!--      </div>-->
-  <!--      <div class="col">-->
-  <!--        <div class="input-group">-->
-  <!--          <div class="input-group-prepend">-->
-  <!--            <span class="input-group-text" id="inputGroupPrepend2">@</span>-->
-  <!--          </div>-->
-  <!--          <input type="text" class="form-control" id="validationDefaultEmail" placeholder="Email" aria-describedby="inputGroupPrepend2" required>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    <div class="col">-->
-  <!--      <button type="button" class="btn btn-primary btn-block" type="submit">Join</button>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--  <div class="col-6">-->
-  <!--    <div class="form-group">-->
-  <!--      <div class="form-check">-->
-  <!--        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>-->
-  <!--        <label class="form-check-label" for="invalidCheck2">-->
-  <!--          I give my consent to Extinction Rebellion to get in touch with me using the information I have provided in this form, for the purpose of news, update, and rebellion-->
-  <!--        </label>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </form>-->
 </div>
 
 <br/>
