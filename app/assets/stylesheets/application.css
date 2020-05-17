@@ -60,10 +60,13 @@ body {
     padding: 20px;
     border: 1px solid #dddcd8;
     position: sticky;
+    font-family: "Franklin Gothic Medium";
 }
 
+.widgetmain {
+    font-family: 'Crimson Text', serif;
+}
 .lead {
-
     margin:auto;
     left:0;
     right:0;
@@ -160,8 +163,4 @@ footer a:visited {
 
 footer a:hover {
     color: #FFFFFF;
-}
-
-.list-inline-item {
-vertical-align: middle;
 }

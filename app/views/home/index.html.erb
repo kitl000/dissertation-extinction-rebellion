@@ -6,10 +6,12 @@
       <p> <%= f.select(:category, $categories, :include_blank=> false, prompt: 'Select a category') %></p>
       <p><%= f.select(:start_month, $start_months, :include_blank=> false, prompt: 'Select a month') %></p>
       <p><%= f.select(:start_year, $start_years, :include_blank=> false, prompt: 'Select a year') %></p>
-      <p> <%= submit_tag("Search") %><p>
+      <p> <%= submit_tag("Search") %></p>
     <% end %>
-
-
+<br>
+    <br>
+  <h2>RSS Feed</h2>
+    <iframe src="https://feed.mikle.com/widget/v2/129889/?preloader-text=Loading" height="1402px" width="250px" class="fw-iframe" scrolling="no" frameborder="0"></iframe>
 </div>
 
 <!-- Page Content -->
