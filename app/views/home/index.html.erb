@@ -39,7 +39,7 @@
           <p><strong>Description: </strong><%= sanitize(event.description) %></p>
           <p><strong>Start time: </strong><%= event.start_time %></p>
           <p><strong>Location: </strong><%= event.place_name %></p>
-          <!--<p><%#= event.link-id %></p>-->
+          <p><a href="https://www.facebook.com/events/<%= event.fbid %>" target="_blank">https://www.facebook.com/events/<%= event.fbid %></a></p>
           <hr>
       <% end %>
     </ul>
