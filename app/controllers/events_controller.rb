@@ -6,6 +6,9 @@ class EventsController < ApplicationController
   before_action :authenticate_admin, only: [:destroy, :edit, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+  DatabaseCleaner.allow_production = true
+  DatabaseCleaner.allow_remote_database_url = true
+
   helper_method :synch_all_events
 
   include Pagy::Backend
