@@ -11,7 +11,7 @@
 <br>
     <br>
   <h2>RSS Feed</h2>
-    <iframe src="https://feed.mikle.com/widget/v2/129889/?preloader-text=Loading" height="1402px" width="250px" class="fw-iframe" scrolling="no" frameborder="0"></iframe>
+    <iframe src="https://feed.mikle.com/widget/v2/129889/?preloader-text=Loading" height="1826px" width="280px" class="fw-iframe" scrolling="no" frameborder="0"></iframe>
 </div>
 
 <!-- Page Content -->
@@ -36,7 +36,8 @@
         <li>
           <%= image_tag(event.image) %>
           <h2><%= event.title %></h2>
-          <p><strong>Description: </strong><%= sanitize(event.description) %></p>
+          <div class="limit">
+            <p><strong>Description: </strong><%= sanitize(event.description) %></p></div>
           <p><strong>Start time: </strong><%= event.start_time %></p>
           <p><strong>Location: </strong><%= event.place_name %></p>
           <p><a href="https://www.facebook.com/events/<%= event.fbid %>" target="_blank">https://www.facebook.com/events/<%= event.fbid %></a></p>

@@ -45,3 +45,4 @@ $(document).ready(function(){
 });
 
 $(document).on('ready page:load', _ => $('.datepicker').datepicker());
+
