@@ -54,18 +54,17 @@ body {
     margin-right: 40px;
 }
 
-.list-group {
-    margin:auto;
-    float:left;
+#sidebar {
+
     padding: 20px;
-    border: 1px solid #dddcd8;
-    position: sticky;
     font-family: "Franklin Gothic Medium";
 }
 
-.widgetmain {
-    font-family: 'Crimson Text', serif;
+#main-bar {
+    max-width:80%;
+    margin:0 auto;
 }
+
 .lead {
     margin:auto;
     left:0;

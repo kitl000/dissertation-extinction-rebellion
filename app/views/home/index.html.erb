@@ -1,77 +1,81 @@
-<div class="list-group">
+<!--<div class="container">-->
+<!--<div class="speech">-->
+<!--  <h3>Rebels are organising meetings, talks, events and actions all the time and you can get involved.-->
+<!--  </h3>-->
+<!--  <br>-->
+<!--</div>-->
+<!--</div>-->
 
-  <h2>Filter</h2>
-  <p><%= form_with(url: events_path, method: "get", local: true) do |f|%></p>
-      <p> <%= f.select(:city, $places, :include_blank=> false, prompt: 'Select a city') %></p>
-      <p> <%= f.select(:category, $categories, :include_blank=> false, prompt: 'Select a category') %></p>
-      <p><%= f.select(:start_month, $start_months, :include_blank=> false, prompt: 'Select a month') %></p>
-      <p><%= f.select(:start_year, $start_years, :include_blank=> false, prompt: 'Select a year') %></p>
-      <p> <%= submit_tag("Search") %></p>
-    <% end %>
-<br>
-    <br>
-  <h2>RSS Feed</h2>
-    <iframe src="https://feed.mikle.com/widget/v2/129889/?preloader-text=Loading" height="1826px" width="280px" class="fw-iframe" scrolling="no" frameborder="0"></iframe>
-</div>
+<!--<hr>-->
 
-<!-- Page Content -->
-<div class="container">
-  <div class="speech">
-    <h3>Rebels are organising meetings, talks, events and actions all the time and you can get involved.
-    </h3>
-    <br>
-  </div>
+<div class="container-fluid">
+  <div class="row">
+    <div id="sidebar" class="col-md-2 p-x-0 p-y-3">
+      <h2>Filter</h2>
+      <p><%= form_with(url: events_path, method: "get", local: true) do |f| %></p>
+          <p> <%= f.select(:city, $places, :include_blank => false, prompt: 'Select a city') %></p>
+          <p> <%= f.select(:category, $categories, :include_blank => false, prompt: 'Select a category') %></p>
+          <p><%= f.select(:start_month, $start_months, :include_blank => false, prompt: 'Select a month') %></p>
+          <p><%= f.select(:start_year, $start_years, :include_blank => false, prompt: 'Select a year') %></p>
+          <p> <%= submit_tag("Search") %></p>
+        <% end %>
+        <br>
+        <br>
+        <h2>RSS Feed</h2>
+        <iframe src="https://feed.mikle.com/widget/v2/129889/?preloader-text=Loading" height="1826px" width="280px" class="fw-iframe" scrolling="no" frameborder="0"></iframe>
+        </div>
 
-  <!-- Page Heading/Breadcrumbs -->
-  <div class="homepage">
 
-    <% if notice %>
-      <aside id="notice"><%= notice %></aside>
-    <% end %>
+    <div id="main-bar" class="col-md-10 p-x-3 p-y-1">
 
-    <hr>
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="homepage">
 
-    <ul class="catalog">
-      <% @events.each do |event| %>
-        <li>
-          <%= image_tag(event.image) %>
-          <h2><%= event.title %></h2>
-          <div class="limit">
-            <p><strong>Description: </strong><%= sanitize(event.description) %></p></div>
-          <p><strong>Start time: </strong><%= event.start_time %></p>
-          <p><strong>Location: </strong><%= event.place_name %></p>
-          <p><a href="https://www.facebook.com/events/<%= event.fbid %>" target="_blank">https://www.facebook.com/events/<%= event.fbid %></a></p>
-          <hr>
+      <% if notice %>
+        <aside id="notice"><%= notice %></aside>
       <% end %>
-    </ul>
+
+
+      <ul class="catalog">
+        <% @events.each do |event| %>
+          <li>
+            <%= image_tag(event.image) %>
+            <h2><%= event.title %></h2>
+            <div class="limit">
+              <p><strong>Description: </strong><%= sanitize(event.description) %></p></div>
+            <p><strong>Start time: </strong><%= event.start_time %></p>
+            <p><strong>Location: </strong><%= event.place_name %></p>
+            <p>
+              <a href="https://www.facebook.com/events/<%= event.fbid %>" target="_blank">https://www.facebook.com/events/<%= event.fbid %></a>
+            </p>
+            <hr>
+        <% end %>
+      </ul>
+    </div>
+
+
+    <!--Google map-->
+    <div style='width: 800px;'>
+      <div id="map" style='width: 800px; height: 400px;'></div>
+    </div>
+
+    <script type="text/javascript">
+        handler = Gmaps.build('Google');
+        handler.buildMap({provider: {}, internal: {id: 'map'}}, function () {
+            markers = handler.addMarkers(<%=raw @events_default.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+        });
+    </script>
+    <br>
+
+    <%= pagy_nav(@pagy).html_safe %>
+
+    <br>
+
+
   </div>
-
-
-
 </div>
-<!-- /.container -->
 
-<div class="container">
-  <!--Google map-->
-  <div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'></div>
-  </div>
-
-  <script type="text/javascript">
-      handler = Gmaps.build('Google');
-      handler.buildMap({provider: {}, internal: {id: 'map'}}, function () {
-          markers = handler.addMarkers(<%=raw @events_default.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-      });
-  </script>
-  <br>
-
-  <%= pagy_nav(@pagy).html_safe %>
-
-  <br>
-
-
-</div>
 
 <br/>
