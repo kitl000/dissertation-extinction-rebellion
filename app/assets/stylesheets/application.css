@@ -50,23 +50,21 @@ body {
     color: white;
 }
 
-/*!*Second bar text*!*/
-/*.nav.justify-content-center li a {*/
-/*    color: black;*/
-/*    font-weight: bold;*/
-/*    font-family: "Franklin Gothic Medium";*/
-/*    background-color: white;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*!*Second bar hover*!*/
-/*.nav.justify-content-center li a:hover {*/
-/*    color: #75d0f1;*/
-/*}*/
-
 .nav-item {
     margin-right: 40px;
 }
+
+.sidebar {
+    padding: 10px;
+    font-family: "Franklin Gothic Medium";
+}
+
+.main-bar {
+    max-width:80%;
+    margin:0 auto;
+    margin-left: 0;
+}
+
 
 .image {
     position: relative;
@@ -89,7 +87,6 @@ body {
     bottom: 10%;
     font-size: 68px;
     font-weight: bold;
-    font-family: "Franklin Gothic Medium";
 }
 
 .speech {
@@ -108,28 +105,15 @@ body {
     padding: 20px 20px;
 }
 
+.limit p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
 hr {
     border: 1px solid black;
-}
-
-.map-container {
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
-}
-
-.map-container iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
-
-.map {
-    text-align: center;
-    border: black;
 }
 
 .back-to-top {
@@ -158,8 +142,4 @@ footer a:visited {
 
 footer a:hover {
     color: #FFFFFF;
-}
-
-.list-inline-item {
-vertical-align: middle;
 }

@@ -35,11 +35,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <h3 class="nav-link"><%= link_to "EVENTS", home_index_path %></h3>
+              <h3 class="nav-link"><%= link_to "HOME", home_index_path %></h3>
             </li>
-<!--            <li class="nav-item">-->
-<!--              <h3 class="nav-link"><%#= link_to "EVENTS", events_path %></h3>-->
-<!--            </li>-->
+            <li class="nav-item">
+              <h3 class="nav-link"><%= link_to "EVENTS", events_path %></h3>
+            </li>
             <li class="nav-item">
               <h3 class="nav-link"><%= link_to "CONTACT", contacts_new_path %></h3>
             </li>
@@ -63,9 +63,13 @@
                 <i class="fab fa-youtube" style="font-size:24px"></i>
               </a>
             </li>
+            <li class="list-inline-item">
+              <a href="http://fetchrss.com/rss/5ec6a57f8a93f8ff678b45685ec6a56f8a93f8d5668b4567.xml" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fas fa-rss" style="font-size:24px"></i>
+              </a>
+            </li>
             <li class="nav-item">
               <h3><%= form_with(url: events_path, method: "get", local: true) do |f|%></h3>
-                <%= label_tag(:search, "Search:") %>
                 <%= text_field_tag(:search) %>
                 <%= submit_tag("Search") %>
               <% end %>
@@ -74,23 +78,8 @@
         </div>
       </div>
     </nav>
-
-<!--    <ul class="nav justify-content-center">-->
-      <%# if user_signed_in? %>
-<!--        <li class="nav-item">-->
-<!--          <h5 class="nav-link"><%#= link_to('LOGOUT', destroy_user_session_path, method: :delete) %></h5>-->
-<!--        </li>-->
-      <%# else %>
-<!--        <li class="nav-item">-->
-<!--          <h5 class="nav-link"><%#= link_to('LOGIN', new_user_session_path) %></h5>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <h5 class="nav-link"><%#= link_to 'LOGIN IN WITH FACEBOOK', user_facebook_omniauth_authorize_path, target: :_blank %></h5>-->
-<!--        </li>-->
-      <%# end %>
-<!--      </li>-->
-<!--    </ul>-->
 </div>
+
 </header>
 
 <div class="image">
@@ -123,11 +112,12 @@
           non-commercially for the purpose of planet saving. This does not mean creating merchandise for fundraising or
           sending XR a percentage of your sales. We do not endorse or create any merchandise and we will pursue and
           prosecute anyone who does. The Extinction Symbol was designed in 2011 by street artist ESP, who loans XR usage
-          on the same basis: www.extinctionsymbol.info.   <%= link_to "(ADMIN CONTROL)", events_path %></p>
+          on the same basis: www.extinctionsymbol.info.</p>
+        <p><%= link_to('LOGIN', new_user_session_path) %> <br>
+          <%= link_to('LOGOUT', destroy_user_session_path, method: :delete) %></p>
       </div>
       <!-- Grid column -->
 
-      <hr class="clearfix w-100 d-md-none">
 
       <!-- Grid column -->
       <div class="col-md-2 mx-auto">
@@ -205,6 +195,11 @@
             <li class="list-inline-item">
               <a href="https://www.youtube.com/channel/UCYThdLKE6TDwBJh-qDC6ICA" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
                 <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="http://fetchrss.com/rss/5ec6a57f8a93f8ff678b45685ec6a56f8a93f8d5668b4567.xml" target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fas fa-rss"></i>
               </a>
             </li>
           </ul>
