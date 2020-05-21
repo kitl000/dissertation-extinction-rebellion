@@ -70,7 +70,6 @@
             </li>
             <li class="nav-item">
               <h3><%= form_with(url: events_path, method: "get", local: true) do |f|%></h3>
-                <%= label_tag(:search, "Search:") %>
                 <%= text_field_tag(:search) %>
                 <%= submit_tag("Search") %>
               <% end %>
@@ -79,22 +78,6 @@
         </div>
       </div>
     </nav>
-
-<!--    <ul class="nav justify-content-center">-->
-      <%# if user_signed_in? %>
-<!--        <li class="nav-item">-->
-<!--          <h5 class="nav-link"><%#= link_to('LOGOUT', destroy_user_session_path, method: :delete) %></h5>-->
-<!--        </li>-->
-      <%# else %>
-<!--        <li class="nav-item">-->
-<!--          <h5 class="nav-link"><%#= link_to('LOGIN', new_user_session_path) %></h5>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <h5 class="nav-link"><%#= link_to 'LOGIN IN WITH FACEBOOK', user_facebook_omniauth_authorize_path, target: :_blank %></h5>-->
-<!--        </li>-->
-      <%# end %>
-<!--      </li>-->
-<!--    </ul>-->
 </div>
 
 </header>
@@ -129,12 +112,12 @@
           non-commercially for the purpose of planet saving. This does not mean creating merchandise for fundraising or
           sending XR a percentage of your sales. We do not endorse or create any merchandise and we will pursue and
           prosecute anyone who does. The Extinction Symbol was designed in 2011 by street artist ESP, who loans XR usage
-          on the same basis: www.extinctionsymbol.info.   <%= link_to('LOGIN', new_user_session_path) %></p>
-          <p><%= link_to('LOGOUT', destroy_user_session_path, method: :delete) %></p>
+          on the same basis: www.extinctionsymbol.info.</p>
+        <p><%= link_to('LOGIN', new_user_session_path) %> <br>
+          <%= link_to('LOGOUT', destroy_user_session_path, method: :delete) %></p>
       </div>
       <!-- Grid column -->
 
-      <hr class="clearfix w-100 d-md-none">
 
       <!-- Grid column -->
       <div class="col-md-2 mx-auto">

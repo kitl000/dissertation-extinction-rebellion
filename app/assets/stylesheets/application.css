@@ -54,22 +54,15 @@ body {
     margin-right: 40px;
 }
 
-#sidebar {
-
-    padding: 20px;
+.sidebar {
+    padding: 10px;
     font-family: "Franklin Gothic Medium";
 }
 
-#main-bar {
+.main-bar {
     max-width:80%;
     margin:0 auto;
-}
-
-.lead {
-    margin:auto;
-    left:0;
-    right:0;
-    padding-top:10%;
+    margin-left: 0;
 }
 
 
@@ -121,26 +114,6 @@ body {
 
 hr {
     border: 1px solid black;
-}
-
-.map-container {
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
-}
-
-.map-container iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
-
-.map {
-    text-align: center;
-    border: black;
 }
 
 .back-to-top {
