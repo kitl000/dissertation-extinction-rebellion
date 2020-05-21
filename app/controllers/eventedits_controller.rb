@@ -24,7 +24,7 @@ class EventeditsController < ApplicationController
   # POST /eventedits
   # POST /eventedits.json
   def create
-    @eventedit = Eventedit.new(eventedit_params)
+    @eventedit = Eventedit.create(eventedit_params)
 
     respond_to do |format|
       if @eventedit.save
@@ -69,6 +69,8 @@ class EventeditsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def eventedit_params
-      params.fetch(:eventedit, {})
+      params.require(:eventedit).permit(:id,
+          :fbid, :title, :image, :start_time, :end_time, :description, :lat, :long, :street, :zip, :city, :category
+      )
     end
 end

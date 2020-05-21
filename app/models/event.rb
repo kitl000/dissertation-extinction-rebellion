@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  has_one :eventedit
 
   acts_as_taggable_on :places
 
