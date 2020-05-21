@@ -1,0 +1,3 @@
+class Eventedit < ApplicationRecord
+
+end

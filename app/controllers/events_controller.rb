@@ -188,6 +188,7 @@ class EventsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -196,6 +197,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :image, :start_time, :end_time, :description, :place_name, :lat, :long, :street, :zip)
+      params.require(:event).permit(:title, :image, :start_time, :end_time, :description, :lat, :long, :street, :zip, :city, :category)
     end
 end
+
