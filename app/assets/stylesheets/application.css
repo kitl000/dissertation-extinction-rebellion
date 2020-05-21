@@ -51,7 +51,7 @@ body {
 }
 
 .nav-item {
-    margin-right: 40px;
+    margin-right: 20px;
 }
 
 .sidebar {
@@ -77,23 +77,6 @@ body {
     top: 0;
     width: 100%;
     height: auto;
-}
-
-.caption {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    top: 90%;
-    bottom: 10%;
-    font-size: 68px;
-    font-weight: bold;
-}
-
-.speech {
-    text-align: center;
-    width: 60%;
-    margin: 0 auto;
-    font-family: 'Crimson Text', serif;
 }
 
 .homepage {

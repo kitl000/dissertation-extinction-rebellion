@@ -1,52 +1,51 @@
-
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
 
 <% if current_user && current_user.admin %>
-<%= button_to "Refresh All Events", { :controller => "events", :action => "synch_all_events"}, class: 'btn btn-danger' %>
-  <% end %>
+  <%= button_to "Refresh All Events", {:controller => "events", :action => "synch_all_events"}, class: 'btn btn-danger' %>
+<% end %>
 <br><br>
 
 <table>
   <thead>
-    <tr>
-      <th>Title</th>
-<!--      <th>Image</th>-->
-      <th>Start time</th>
-      <th>End time</th>
-      <th>Description</th>
-      <th>Place name</th>
-      <th>Lat</th>
-      <th>Long</th>
-      <th>Street</th>
-      <th>City</th>
-      <th>Zip</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Title</th>
+    <!--<th>Image</th>-->
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Description</th>
+    <th>Place name</th>
+    <th>Lat</th>
+    <th>Long</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>Zip</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-<!--        <td><%#= event.image %></td>-->
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
-        <td><%= event.description %></td>
-        <td><%= event.place_name %></td>
-        <td><%= event.lat %></td>
-        <td><%= event.long %></td>
-        <td><%= event.street %></td>
-        <td><%= event.city %></td>
-        <td><%= event.zip %></td>
-        <td><%= link_to 'Show', event %></td>
-        <% if current_user && current_user.admin %>
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.title %></td>
+      <!--<td><%#= event.image %></td>-->
+      <td><%= event.start_time %></td>
+      <td><%= event.end_time %></td>
+      <td><%= event.description %></td>
+      <td><%= event.place_name %></td>
+      <td><%= event.lat %></td>
+      <td><%= event.long %></td>
+      <td><%= event.street %></td>
+      <td><%= event.city %></td>
+      <td><%= event.zip %></td>
+      <td><%= link_to 'Show', event %></td>
+      <% if current_user && current_user.admin %>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-      </tr>
-    <% end %>
+        <td><%= link_to 'Destroy', event, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% end %>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
