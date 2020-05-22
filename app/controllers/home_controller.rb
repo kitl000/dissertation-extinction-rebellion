@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     @events_default = Gmaps4rails.build_markers(@events) do |plot, marker|
       marker.lat plot.lat
       marker.lng plot.long
+        marker.infowindow plot.title
     end
     return @events
   end
