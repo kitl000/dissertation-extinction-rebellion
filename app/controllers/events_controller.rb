@@ -3,7 +3,7 @@ require 'database_cleaner'
 
 class EventsController < ApplicationController
   # before_action :authenticate_user!
-  before_action :authenticate_admin, only: [:destroy, :edit, :update]
+  #before_action :authenticate_admin, only: [:destroy, :edit, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # DatabaseCleaner.allow_production = true
@@ -44,6 +44,7 @@ class EventsController < ApplicationController
       @events = @events.where("start_time BETWEEN '#{@start_year}' AND '#{@end_of_start_year}'", @start_year)
     end
       @pagy, @events = pagy(@events, page: params[:page], items: 8)
+    @events = @events.map(&method(:load_event_by_id))
   end
 
 
@@ -148,6 +149,10 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def show
+    self.load_event_by_id(@event)
+  end
+
   # POST /events
   # POST /events.json
   def create
@@ -188,6 +193,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def load_event_by_id e
+    @editedEvent = Eventedit.find_by_fbid(e.fbid)
+    if(@editedEvent != nil)
+      @editedEvent.attributes.each do |name, value|
+        unless value == nil || value == ''
+          e.write_attribute(name, value);
+        end
+      end
+    end
+    return e;
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -197,7 +213,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :image, :start_time, :end_time, :description, :lat, :long, :street, :zip, :city, :category)
+      params.require(:event).permit(:id, :fbid, :title, :image, :start_time, :end_time, :description, :lat, :long, :street, :zip, :city, :category)
     end
 end
 
