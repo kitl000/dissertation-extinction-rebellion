@@ -1,59 +1,59 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @event.title %>
+  </p>
 
-<!--<p>-->
-<!--  <strong>Image:</strong>-->
+  <!--<p>-->
+  <!--<strong>Image:</strong>-->
   <%#= @event.image %>
-<!--</p>-->
+  <!--</p>-->
 
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
+  <p>
+    <strong>Start time:</strong>
+    <%= @event.start_time %>
+  </p>
 
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
+  <p>
+    <strong>End time:</strong>
+    <%= @event.end_time %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
 
-<p>
-  <strong>Place name:</strong>
-  <%= @event.place_name %>
-</p>
+  <p>
+    <strong>Place name:</strong>
+    <%= @event.place_name %>
+  </p>
 
-<p>
-  <strong>Lat:</strong>
-  <%= @event.lat %>
-</p>
+  <p>
+    <strong>Lat:</strong>
+    <%= @event.lat %>
+  </p>
 
-<p>
-  <strong>Long:</strong>
-  <%= @event.long %>
-</p>
+  <p>
+    <strong>Long:</strong>
+    <%= @event.long %>
+  </p>
 
-<p>
-  <strong>Street:</strong>
-  <%= @event.street %>
-</p>
+  <p>
+    <strong>Street:</strong>
+    <%= @event.street %>
+  </p>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @event.zip %>
-</p>
+  <p>
+    <strong>Zip:</strong>
+    <%= @event.zip %>
+  </p>
 
   <% if current_user && current_user.admin %>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-    <% end %>
-<%= link_to 'Back', events_path %>
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+  <% end %>
+  <%= link_to 'Back', events_path %>
 
 </div>

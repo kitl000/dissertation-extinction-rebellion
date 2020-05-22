@@ -22,23 +22,18 @@
       </div>
     </div>
 
-      <div class="row">
-        <div class="col-12">
-          <div class="form-group">
-            <%= f.label :message %>
-            <%= f.text_area :message, class: "form-control", placeholder: "Enter Message", rows: 5 %>
-          </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <%= f.label :message %>
+          <%= f.text_area :message, class: "form-control", placeholder: "Enter Message", rows: 5 %>
+        </div>
 
-
-          <!--  <%#= f.label :nickname %> <br>-->
-          <%#= f.text_field :nickname, hint: 'leave this field blank' %>
-
-
-          <%= f.submit 'Send Message', class: "form_label" %>
+        <%= f.submit 'Send Message', class: "form_label" %>
   <% end %>
   </div>
-  </div>
 
-</br>
+  </br>
 
   </div>
+</div>

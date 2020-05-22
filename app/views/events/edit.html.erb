@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1>Edit Event</h1>
+  <h1>Edit Event</h1>
 
   <p>
     <strong>Title:</strong>
@@ -8,7 +8,7 @@
   </p>
 
   <!--<p>-->
-  <!--  <strong>Image:</strong>-->
+  <!--<strong>Image:</strong>-->
   <%#= @event.image %>
   <!--</p>-->
 
@@ -63,10 +63,10 @@
   </p>
 
 
-      <%= render :partial => "eventedits/form", :locals => {:eventedit => Eventedit.new} %>
+  <%= render :partial => "eventedits/form", :locals => {:eventedit => Eventedit.new} %>
 
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+  <%= link_to 'Show', @event %> |
+  <%= link_to 'Back', events_path %>
 
 </div>

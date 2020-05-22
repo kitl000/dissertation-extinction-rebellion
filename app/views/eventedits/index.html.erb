@@ -4,19 +4,19 @@
 
 <table>
   <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @eventedits.each do |eventedit| %>
-      <tr>
-        <td><%= link_to 'Show', eventedit %></td>
-        <td><%= link_to 'Edit', edit_eventedit_path(eventedit) %></td>
-        <td><%= link_to 'Destroy', eventedit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @eventedits.each do |eventedit| %>
+    <tr>
+      <td><%= link_to 'Show', eventedit %></td>
+      <td><%= link_to 'Edit', edit_eventedit_path(eventedit) %></td>
+      <td><%= link_to 'Destroy', eventedit, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
