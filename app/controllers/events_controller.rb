@@ -54,7 +54,7 @@ class EventsController < ApplicationController
   end
 
   def synch_all_events
-    DatabaseCleaner.clean_with(:truncation)
+    #DatabaseCleaner.clean_with(:truncation)
     @graph = Koala::Facebook::API.new('EAAInkjqsD4UBAGdYpyowdWFeauzzcnZC6ChN4RoU4zMW4JrpoCCsSO2VxtsadanLusG6zz2JUAqkOIfHaephOQEiAJeodc26jnDWBkUWHoIvpin92r2RDYWcXrqESC08IXa5ZAEhLIbjHkEtZCgdF29ZAp1QUfGsWzaPMDlSAgZDZD')
     pages = @graph.get_connections('me','accounts')
 
@@ -147,6 +147,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    self.load_event_by_id(@event)
   end
 
   def show
