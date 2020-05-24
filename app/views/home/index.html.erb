@@ -54,7 +54,7 @@
           </div>
 
           <script type="text/javascript">
-              handler = Gmaps.build('Google');
+              handler = Gmaps.build('Google', { markers: { maxRandomDistance: 1000 } });
               handler.buildMap({provider: {}, internal: {id: 'map'}}, function () {
                   markers = handler.addMarkers(<%=raw @events_default.to_json %>);
                   handler.bounds.extendWith(markers);
