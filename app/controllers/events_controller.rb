@@ -60,7 +60,7 @@ class EventsController < ApplicationController
 
     pages.each do |page|
       events = @graph.get_connections(page['id'],'events')
-      picture = @graph.get_connections(page['id'],'picture',{redirect:0})
+      picture = @graph.get_connections(page['id'],'events?field=cover',{redirect:0})
 
       events.each do |event|
         if (event['place']!=nil)
