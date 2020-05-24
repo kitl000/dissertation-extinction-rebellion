@@ -8,7 +8,7 @@
 require 'koala'
 require 'database_cleaner'
 
-  DatabaseCleaner.clean_with(:truncation)
+#DatabaseCleaner.clean_with(:truncation)
 
 #groupids = CSV.read(Rails.root.join('db','XRGroups.csv'))
 
