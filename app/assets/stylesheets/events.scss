@@ -13,6 +13,18 @@ table tr {
   background: white;
   border-bottom: 1px solid
 }
-table th, table td {
+table th {
   padding: 10px 20px;
+}
+
+td
+{
+  table-layout: fixed;
+  max-width: 120px;
+  text-overflow:ellipsis;
+  white-space: pre-wrap;
+}
+
+td.event.description {
+  width: 40%;
 }

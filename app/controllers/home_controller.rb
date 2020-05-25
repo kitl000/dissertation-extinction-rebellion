@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     @events_default = Gmaps4rails.build_markers(@events) do |plot, marker|
       marker.lat plot.lat
       marker.lng plot.long
+      marker.infowindow render_to_string(:partial => "/shared/infowindow", :locals => { :object => plot})
     end
     return @events
   end
