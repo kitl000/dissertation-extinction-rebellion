@@ -101,6 +101,9 @@ GEM
     hashie (4.1.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    inline_svg (1.7.1)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     io-like (0.3.1)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
@@ -278,6 +281,7 @@ DEPENDENCIES
   devise
   duktape
   gmaps4rails
+  inline_svg
   jbuilder (~> 2.5)
   jquery-rails
   koala

@@ -27,7 +27,10 @@ body {
     vertical-align: middle;
 }
 
-/*Navbar logo*/
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
 .navbar-brand {
     background-color: #75d0f1;
 }
@@ -50,11 +53,12 @@ body {
     color: white;
 }
 
+
 .nav-item {
     margin-right: 15px;
 }
 
-.list-inline-item {
+#inline-item {
     margin-top: 12px;
 }
 
