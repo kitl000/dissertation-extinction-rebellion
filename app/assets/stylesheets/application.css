@@ -62,16 +62,21 @@ body {
     margin-top: 12px;
 }
 
-.sidebar {
-    padding: 10px;
-    font-family: "Franklin Gothic Medium";
+#center {
+    max-width: 80%;
+    margin:0 auto;
 }
 
-.main-bar {
-    max-width:80%;
-    margin:0 auto;
-    margin-left: 0;
+.sidebar {
+    font-family: "Franklin Gothic Medium";
+    max-height: 60%;
 }
+
+/*.main-bar {*/
+/*    max-width:80%;*/
+/*    margin:0 auto;*/
+/*    !*margin-left: 0;*!*/
+/*}*/
 
 
 .image {
