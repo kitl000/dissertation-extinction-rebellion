@@ -53,6 +53,11 @@
     <%= @event.zip %>
   </p>
 
+  <p>
+    <strong>Category:</strong>
+    <%= @event.category %>
+  </p>
+
   <% if current_user && current_user.admin %>
     <%= link_to 'Edit', edit_event_path(@event) %> |
   <% end %>
