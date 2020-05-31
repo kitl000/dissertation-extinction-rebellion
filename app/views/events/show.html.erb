@@ -1,15 +1,17 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
+  <%# if current_user && current_user.admin %>
+    <%= button_to "Refresh Event", {:controller => "events",
+                                    :action => "update",
+                                    :params => { :fbid => @event.fbid } }, :method=>:put, class: 'btn btn-danger' %>
+  <%# end %>
+  <br><br>
+
   <p>
     <strong>Title:</strong>
     <%= @event.title %>
   </p>
-
-  <!--<p>-->
-  <!--<strong>Image:</strong>-->
-  <%#= @event.image %>
-  <!--</p>-->
 
   <p>
     <strong>Start time:</strong>
@@ -23,7 +25,7 @@
 
   <p>
     <strong>Description:</strong>
-    <%= @event.description %>
+    <%= @event.description.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %>
   </p>
 
   <p>

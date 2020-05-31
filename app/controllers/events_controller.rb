@@ -54,95 +54,105 @@ class EventsController < ApplicationController
   end
 
   def synch_all_events
-    #DatabaseCleaner.clean_with(:truncation)
     @graph = Koala::Facebook::API.new('EAAInkjqsD4UBAGdYpyowdWFeauzzcnZC6ChN4RoU4zMW4JrpoCCsSO2VxtsadanLusG6zz2JUAqkOIfHaephOQEiAJeodc26jnDWBkUWHoIvpin92r2RDYWcXrqESC08IXa5ZAEhLIbjHkEtZCgdF29ZAp1QUfGsWzaPMDlSAgZDZD')
     pages = @graph.get_connections('me','accounts')
 
     pages.each do |page|
       events = @graph.get_connections(page['id'],'events')
-      picture = @graph.get_connections(page['id'],'events?field=cover',{redirect:0})
+      picture = @graph.get_connections(page['id'],'picture',{redirect:0})
 
       events.each do |event|
-        if (event['place']!=nil)
-          place = event['place']
-          place_name = place['name']
-          if (place['location']!=nil)
-            location = place['location']
-            lat = location['latitude']
-            long = location['longitude']
-            street = location['street']
-            city = location['city']
-            zip = location['zip']
-            # links
-          else
-            lat = nil
-            long = nil
-            street = nil
-            zip = nil
-          end
-        else
-          place_name = nil
-          lat = nil
-          long = nil
-          street = nil
-          zip = nil
-        end
-        existing_event = Event.find_by(fbid: event['id'])
-        if(picture['data']!=nil)
-          image = picture['data']['url']
-        else
-          image = ''
-        end
-        escaped_name = Regexp.escape(event['name'])
-        if escaped_name.include? "Talk"
-          category = "Talk"
-        elsif escaped_name.include? "Meeting"
-          category = "Meeting"
-        elsif escaped_name.include? "March"
-          category = "March"
-        elsif escaped_name.include? "Workshop"
-          category = "Workshop"
-        else
-          category = "Other"
-        end
-        if existing_event!=nil
-         existing_event.update(
-             fbid: event['id'],
-             title: event['name'],
-             image: image,
-             start_time: event['start_time'],
-             end_time: event['end_time'],
-             description: event['description'],
-             place_name: place_name,
-             lat: lat,
-             long: long,
-             street: street,
-             city: city,
-             zip: zip,
-             category: category
-
-         )
-        else
-          Event.create(
-              fbid: event['id'],
-              title: event['name'],
-              image: image,
-              start_time: event['start_time'],
-              end_time: event['end_time'],
-              description: event['description'],
-              place_name: place_name,
-              lat: lat,
-              long: long,
-              street: street,
-              city: city,
-              zip: zip,
-              category: category
-              )
-        end
-
+        self.synch_event(event,picture)
       end
     end
     redirect_to events_path, notice: "Events Updated"
+  end
+
+  def synch_event_by_id
+    @id = params["fbid"]
+    @graph = Koala::Facebook::API.new('EAAInkjqsD4UBAGdYpyowdWFeauzzcnZC6ChN4RoU4zMW4JrpoCCsSO2VxtsadanLusG6zz2JUAqkOIfHaephOQEiAJeodc26jnDWBkUWHoIvpin92r2RDYWcXrqESC08IXa5ZAEhLIbjHkEtZCgdF29ZAp1QUfGsWzaPMDlSAgZDZD')
+    event = @graph.get_object(@id)
+    picture = @graph.get_connections(event['id'],'picture',{redirect:0})
+    synch_event(event, picture[0])
+  end
+
+  def synch_event(event, picture)
+    if (event['place']!=nil)
+      place = event['place']
+      place_name = place['name']
+      if (place['location']!=nil)
+        location = place['location']
+        lat = location['latitude']
+        long = location['longitude']
+        street = location['street']
+        city = location['city']
+        zip = location['zip']
+        # links
+      else
+        lat = nil
+        long = nil
+        street = nil
+        zip = nil
+      end
+    else
+      place_name = nil
+      lat = nil
+      long = nil
+      street = nil
+      zip = nil
+    end
+    existing_event = Event.find_by(fbid: event['id'])
+    if(picture!=nil && picture['data']!=nil)
+      image = picture['data']['url']
+    else
+      image = ''
+    end
+    escaped_name = Regexp.escape(event['name'])
+    if escaped_name.include? "Talk"
+      category = "Talk"
+    elsif escaped_name.include? "Meeting"
+      category = "Meeting"
+    elsif escaped_name.include? "March"
+      category = "March"
+    elsif escaped_name.include? "Workshop"
+      category = "Workshop"
+    else
+      category = "Other"
+    end
+    if existing_event!=nil
+      existing_event.update(
+          fbid: event['id'],
+          title: event['name'],
+          image: image,
+          start_time: event['start_time'],
+          end_time: event['end_time'],
+          description: event['description'],
+          place_name: place_name,
+          lat: lat,
+          long: long,
+          street: street,
+          city: city,
+          zip: zip,
+          category: category
+
+      )
+    else
+      Event.create(
+          fbid: event['id'],
+          title: event['name'],
+          image: image,
+          start_time: event['start_time'],
+          end_time: event['end_time'],
+          description: event['description'],
+          place_name: place_name,
+          lat: lat,
+          long: long,
+          street: street,
+          city: city,
+          zip: zip,
+          category: category
+      )
+    end
   end
 
   # GET /events/1/edit
@@ -173,15 +183,11 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
+      @id = params["fbid"]
+      @graph = Koala::Facebook::API.new('EAAInkjqsD4UBAGdYpyowdWFeauzzcnZC6ChN4RoU4zMW4JrpoCCsSO2VxtsadanLusG6zz2JUAqkOIfHaephOQEiAJeodc26jnDWBkUWHoIvpin92r2RDYWcXrqESC08IXa5ZAEhLIbjHkEtZCgdF29ZAp1QUfGsWzaPMDlSAgZDZD')
+      event = @graph.get_object(@id)
+      picture = @graph.get_connections(event['id'],'picture',{redirect:0})
+      synch_event(event, picture[0])
   end
 
   # DELETE /events/1

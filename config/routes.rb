@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :events
   post 'events/synch_all_events' => 'events#synch_all_events'
+  put 'events/synch_event_by_id' => 'events#synch_event_by_id'
   devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' }
   resources :users
 

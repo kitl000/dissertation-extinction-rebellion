@@ -28,8 +28,8 @@ class EventeditsController < ApplicationController
 
     respond_to do |format|
       if @eventedit.save
-        format.html { redirect_to @eventedit, notice: 'Eventedit was successfully created.' }
-        format.json { render :show, status: :created, location: @eventedit }
+        format.html { redirect_to @eventedit, notice: 'Event information successfully updated' }
+        format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
         format.json { render json: @eventedit.errors, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class EventeditsController < ApplicationController
   def update
     respond_to do |format|
       if @eventedit.update(eventedit_params)
-        format.html { redirect_to @eventedit, notice: 'Eventedit was successfully updated.' }
+        format.html { redirect_to @eventedit, notice: 'Event information successfully updated' }
         format.json { render :show, status: :ok, location: @eventedit }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class EventeditsController < ApplicationController
   def destroy
     @eventedit.destroy
     respond_to do |format|
-      format.html { redirect_to eventedits_url, notice: 'Eventedit was successfully destroyed.' }
+      format.html { redirect_to events_url, notice: 'Event information removed.' }
       format.json { head :no_content }
     end
   end
