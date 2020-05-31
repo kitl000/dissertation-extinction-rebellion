@@ -24,7 +24,14 @@ class EventeditsController < ApplicationController
   # POST /eventedits
   # POST /eventedits.json
   def create
-    @eventedit = Eventedit.create(eventedit_params)
+    @existingEventEdit = Eventedit.find_by(fbid: eventedit_params['fbid'])
+
+    if @existingEventEdit != nil
+      @existingEventEdit.update(eventedit_params)
+      @eventedit = @existingEventEdit
+    else
+      @eventedit = Eventedit.create(eventedit_params)
+    end
 
     respond_to do |format|
       if @eventedit.save
