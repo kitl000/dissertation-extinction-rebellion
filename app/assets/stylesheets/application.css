@@ -27,7 +27,10 @@ body {
     vertical-align: middle;
 }
 
-/*Navbar logo*/
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
 .navbar-brand {
     background-color: #75d0f1;
 }
@@ -50,24 +53,30 @@ body {
     color: white;
 }
 
+
 .nav-item {
     margin-right: 15px;
 }
 
-.list-inline-item {
+#inline-item {
     margin-top: 12px;
 }
 
-.sidebar {
-    padding: 10px;
-    font-family: "Franklin Gothic Medium";
+#center {
+    max-width: 80%;
+    margin:0 auto;
 }
 
-.main-bar {
-    max-width:80%;
-    margin:0 auto;
-    margin-left: 0;
+.sidebar {
+    font-family: "Franklin Gothic Medium";
+    max-height: 60%;
 }
+
+/*.main-bar {*/
+/*    max-width:80%;*/
+/*    margin:0 auto;*/
+/*    !*margin-left: 0;*!*/
+/*}*/
 
 
 .image {

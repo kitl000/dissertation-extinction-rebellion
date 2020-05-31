@@ -43,7 +43,7 @@
             <h3 class="nav-link"><%= link_to "CONTACT", contacts_new_path %></h3>
           </li>
 
-          <li class="list-inline-item">
+          <li class="nav-item", id="inline-item">
             <a href="https://www.facebook.com/ExtinctionRebellion/" target="_blank" class="btn-floating btn-md rgba-white-slight mx-1">
               <i class="fab fa-facebook-f" style="font-size:24px"></i>
             </a>
@@ -61,7 +61,7 @@
             </a>
           </li>
 
-          <li class="list-inline-item">
+          <li class="nav-item", id="inline-item">
             <%= form_with(url: events_path, method: "get", local: true) do |f| %>
               <%= text_field_tag(:search) %>
               <%= submit_tag("Search") %>
@@ -103,7 +103,7 @@
         <h5 class="font-weight-bold text-center mt-3 mb-4">DONATE</h5>
         <ul class="list-unstyled list-inline text-center py-2">
           <li class="list-inline-item">
-            <a href="https://chuffed.org/pay/campaign/62932" target="_blank" type="button" class="btn btn-success">Donate</a>
+            <a href="https://chuffed.org/pay/campaign/62932" target="_blank" type="button" class="btn btn-outline-success">Donate</a>
           </li>
         </ul>
       </div>
@@ -112,7 +112,7 @@
         <h5 class="font-weight-bold text-center mt-3 mb-4">NEWSLETTER</h5>
         <ul class="list-unstyled list-inline text-center py-2">
           <li class="list-inline-item">
-            <a href="https://actionnetwork.org/forms/newsletter-sign-up-17?source=direct_link&" target="_blank" type="button" class="btn btn-success">Sign
+            <a href="https://actionnetwork.org/forms/newsletter-sign-up-17?source=direct_link&" target="_blank" type="button" class="btn btn-outline-success">Sign
               up</a>
           </li>
         </ul>
