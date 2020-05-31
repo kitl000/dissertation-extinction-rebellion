@@ -34,8 +34,9 @@ class EventeditsController < ApplicationController
     end
 
     respond_to do |format|
+      @event = Event.find_by(fbid: @eventedit.fbid)
       if @eventedit.save
-        format.html { redirect_to @eventedit, notice: 'Event information successfully updated' }
+        format.html { redirect_to @event, notice: 'Event information successfully updated' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
