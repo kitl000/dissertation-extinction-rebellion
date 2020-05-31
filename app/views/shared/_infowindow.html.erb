@@ -1,1 +1,3 @@
-<%= link_to 'See event', event_path(object) %>
+<%= link_to object.title, event_path(object) %>
+<br><br>
+<%= Date.parse(object.start_time).strftime("%d/%m/%Y") %>

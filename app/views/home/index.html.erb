@@ -8,7 +8,7 @@
         <%= form_with(url: events_path, method: "get", local: true) do |f| %>
           <p><%= f.select(:city, $places, :include_blank => false, prompt: 'Select a city') %></p>
           <p><%= f.select(:category, $categories, :include_blank => false, prompt: 'Select a category') %></p>
-          <p><%= f.select(:start_month, $start_months, :include_blank => false, prompt: 'aSelect a month') %></p>
+          <p><%= f.select(:start_month, $start_months, :include_blank => false, prompt: 'Select a month') %></p>
           <p><%= f.select(:start_year, $start_years, :include_blank => false, prompt: 'Select a year') %></p>
           <p> <%= submit_tag("Search") %></p>
         <% end %>
@@ -33,7 +33,7 @@
               <li>
                 <%= image_tag(event.image) %>
                 <h2><%= event.title %></h2>
-                <div class="limit"><p><strong>Description: </strong><%= sanitize(event.description) %></p></div>
+                <div class="limit"><p><strong>Description: </strong><%= sanitize(event.description.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe) %></p></div>
                 <p><strong>Start time: </strong><%= event.start_time %></p>
                 <p><strong>Location: </strong><%= event.place_name %></p>
                 <p>
@@ -54,7 +54,7 @@
           </div>
 
           <script type="text/javascript">
-              handler = Gmaps.build('Google');
+              handler = Gmaps.build('Google', { markers: { maxRandomDistance: 1000 } });
               handler.buildMap({provider: {}, internal: {id: 'map'}}, function () {
                   markers = handler.addMarkers(<%=raw @events_default.to_json %>);
                   handler.bounds.extendWith(markers);
