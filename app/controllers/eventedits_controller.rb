@@ -24,11 +24,19 @@ class EventeditsController < ApplicationController
   # POST /eventedits
   # POST /eventedits.json
   def create
-    @eventedit = Eventedit.create(eventedit_params)
+    @existingEventEdit = Eventedit.find_by(fbid: eventedit_params['fbid'])
+
+    if @existingEventEdit != nil
+      @existingEventEdit.update(eventedit_params)
+      @eventedit = @existingEventEdit
+    else
+      @eventedit = Eventedit.create(eventedit_params)
+    end
 
     respond_to do |format|
+      @event = Event.find_by(fbid: @eventedit.fbid)
       if @eventedit.save
-        format.html { redirect_to @eventedit, notice: 'Event information successfully updated' }
+        format.html { redirect_to @event, notice: 'Event information successfully updated' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }

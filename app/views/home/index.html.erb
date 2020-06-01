@@ -8,7 +8,7 @@
         <h2>Filter</h2>
         <%= form_with(url: events_path, method: "get", local: true) do |f| %>
           <p><%= f.select(:city, $places, :include_blank => false, prompt: 'Select a city') %></p>
-          <p><%= f.select(:category, $categories, :include_blank => false, prompt: 'Select a category') %></p>
+          <p><%= f.select(:category, $menuCategories, :include_blank => false, prompt: 'Select a category') %></p>
           <p><%= f.select(:start_month, $start_months, :include_blank => false, prompt: 'Select a month') %></p>
           <p><%= f.select(:start_year, $start_years, :include_blank => false, prompt: 'Select a year') %></p>
           <p> <%= submit_tag("Search") %></p>
@@ -33,7 +33,7 @@
             <% @events.each do |event| %>
               <li>
                 <%= image_tag(event.image) %>
-                <h2><%= event.title %></h2>
+                <h2><%= link_to event.title, event_path(event) %></h2>
                 <div class="limit"><p><strong>Description: </strong><%= sanitize(event.description.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe) %></p></div>
                 <p><strong>Start time: </strong><%= event.start_time %></p>
                 <p><strong>Location: </strong><%= event.place_name %></p>

@@ -5,6 +5,10 @@ class Event < ApplicationRecord
 
   $places = self.distinct.pluck(:city).filter{|p| p!=nil&&p!=""&&p!="City"}
   $categories = self.distinct.pluck(:category).filter{|c| c!=nil&&c!=""&&c!="Category"}
+  $editCategories = Eventedit.distinct.pluck(:category).filter{|c| c!=nil&&c!=""&&c!="Category"}
+
+  $menuCategories = $categories.push($editCategories).flatten.uniq
+
   $start_months = self.distinct.pluck(:start_time)
       .map{|x| Date.parse(x).month}.uniq.sort
       .filter{|month| month!=nil&&month!=""}
