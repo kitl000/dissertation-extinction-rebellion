@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="text-middle">
-  <h1>Events</h1>
+  <h1>All Events</h1>
 
   <% if current_user && current_user.admin %>
   <%= button_to "Refresh All Events", {:controller => "events", :action => "synch_all_events"}, class: 'btn btn-danger' %>

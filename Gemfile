@@ -87,7 +87,3 @@ gem 'pagy'
 gem 'sitemap_generator'
 
 gem 'mail_form'
-
-gem 'inline_svg'
-
-gem 'rails_12factor', group: :production

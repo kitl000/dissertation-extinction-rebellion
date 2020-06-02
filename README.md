@@ -18,7 +18,7 @@ Third party software required:
 \
 To create an admin account:
 - Go to https://extinction-rebellion-project.herokuapp.com/users/sign_up.
-- Go to terminal and type the following sequnce:
+- Go to terminal and type the following sequence:
 - $ heroku run rails console
 - $ @user = User.first (For first account that was created)
 - $ @user.admin = true
@@ -38,7 +38,14 @@ To create an user account:
 *Warning: Admin control will be destroyed whenever database is refreshed.*
 
 \
-To add changes to 
+To add solve precompile assets issue on Window:
+- Go to terminal:
+- $ set RAILS_ENV=production
+- $ bundle exec rake assets:precompile
+- $ git add public/assets -f
+- $ git commit -m "vendor compiled assets"
+- $ git push origin master
+- $ git push heroku master
 
 \
 List of gems and what they are for:
@@ -61,9 +68,11 @@ List of gems and what they are for:
 - Capybara -  Integration testing tool for rack based web applications. It simulates how a user would interact with a website.
 - Selenium Webdriver -  Tool for writing automated tests of websites. It aims to mimic the behaviour of a real user, and as such interacts with the HTML of the application.
 - Chromedriver Helper - Installs an executable chromedriver in the gem path.
-- tzinfo-data - Contains data from the IANA Time Zone database packaged as Ruby modules for use with TZInfo.
+- Tzinfo-data - Contains data from the IANA Time Zone database packaged as Ruby modules for use with TZInfo.
 - Koala - Lightweight, flexible Ruby SDK for Facebook.
 - Gmaps4rails - Enables easy Google map + overlays creation.
-
+- Pagy - A new pagination library for Ruby on Rails.
+- Sitemap generator - A framework-agnostic XML Sitemap generator written in Ruby with automatic Rails integration.
+- Mail form - Send e-mail straight from forms in Rails with I18n, validations, attachments and request information.
  
 Future adaptation and extension
