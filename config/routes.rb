@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'help', to: 'staticpages#help', as: 'help'
   resources :events
   post 'events/synch_all_events' => 'events#synch_all_events'
   put 'events/synch_event_by_id' => 'events#synch_event_by_id'
