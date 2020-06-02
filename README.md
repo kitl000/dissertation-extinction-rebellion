@@ -1,12 +1,12 @@
-# README
-
-Dissertation - Maintenance Manual
+# Dissertation - Maintenance Manual
 
 \
 Installation instructions:
 - Ruby 2.6.5
 - Rails 5.2.4
 - Git
+- Node.js
+- Yarn
 - Postgres SQL
 - bundle install
 
@@ -15,22 +15,33 @@ Third party software required:
 - Sengrid Account for mailer service
 - Heroku Account for production environment
 
-\
-Admin Account for testing website:
-- Username: admin@admin.com
-- Password: password
+
+To create an admin account:
+- Go to https://extinction-rebellion-project.herokuapp.com/users/sign_up.
+- Go to terminal and type the following sequnce:
+- $ heroku run rails console
+- $ @user = User.first (For first account that was created)
+- $ @user.admin = true
+- $ @user.save
 
 \
-User Account for testing website:
-- Username: test@test.com
-- Password: test1234
+To create an user account: 
+- Go to https://extinction-rebellion-project.herokuapp.com/users/sign_up.
+
+
+
+|               | Admin account  | User Account  |
+| ------------- |:--------------:|:-------------:|
+| Username:     | admin@admin.com|test@test.com  |
+| Password:     | password       | test1234      |
+*Warning: Admin control will be destroyed whenever database is refreshed.*
 
 \
 List of gems and what they are for:
 - JQuery Rails - Provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 - Pg - Ruby interface to the PostgreSQL relational database management system.
 - Devise - User authentication, it creates sign-up and sign-in forms, it also can be used to create user accounts for privacy. 
-- CanCanCan - Authorization library for Ruby and Ruby on Rails which restricts what resources a given user is allowed to access.
+- ~~CanCanCan - Authorization library for Ruby and Ruby on Rails which restricts what resources a given user is allowed to access.~~ 
 - Omniauth Facebook - Implementing 'Facebook sign in'.
 - Puma - Simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications.
 - Sass Rails - Official integration for Ruby on Rails projects with the Sass stylesheet language.
@@ -50,4 +61,6 @@ List of gems and what they are for:
 - Koala - Lightweight, flexible Ruby SDK for Facebook.
 - Gmaps4rails - Enables easy Google map + overlays creation.
 
+\ 
+Future adaptation
 Description of how the system can be changed for most likely future adaptation and extensions:
