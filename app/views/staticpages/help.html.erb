@@ -1,7 +1,29 @@
+<div class="container">
 <h1>Help</h1>
 <br><br>
 <h3>Search for an event</h3>
-  <p>Use the search bar in the corner of the screen to search for an event. Events with titles which partially match your search term will be listed.</p>
+<br>
+  <p>Use the search bar in the top right-hand corner of the screen to search for an event. Events with titles which partially match your search term will be listed.</p>
+<img src="/assets/searchbar.png">
   <br><br>
   <h3>Filter events</h3>
+<br>
 <p>The drop-down menus to the left on the homepage allow you to filter events based on location, date and category. You can select from more than one menu to refine your results.</p>
+  <img src="/assets/filter.png">
+<% #if current_user && current_user.admin %>
+  <br><br>
+  <h3>Edit events</h3>
+  <br>
+  <p>If you are logged in as an administrator, you can edit individual event information. Click on 'edit' beside any event on the Events page to edit information. You can make as many edits as you like and you do not have to update all the fields.</p>
+  <br><br>
+<h3>Refresh events</h3>
+<br>
+  <p>If you are logged in as an administrator, you can use the 'Synch all events' button on the Events page to refresh all the events with information from Facebook. If you have edited any of the events, these events will not be refreshed.</p>
+    <img src="/assets/refreshallevents.png">
+  <br><br><br>
+  <h3>Refresh an individual event</h3>
+  <br>If you are logged in as an administrator, you can use the 'Synch event' button on an individual event page to refresh the event with information from Facebook. If you have edited this event, the event will not be refreshed.</p>
+  <img src="/assets/refreshevent.png">
+  <br><br>
+<% #end %>
+</div>
