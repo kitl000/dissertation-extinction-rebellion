@@ -204,7 +204,7 @@ class EventsController < ApplicationController
     @editedEvent = Eventedit.find_by_fbid(e.fbid)
     if(@editedEvent != nil)
       @editedEvent.attributes.each do |name, value|
-        unless value == nil || value == ''
+        unless value == nil || value == '' || name == 'id'
           e.write_attribute(name, value);
         end
       end
