@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<div class="text-middle">
+  <h1>Events</h1>
 
-<% #if current_user && current_user.admin %>
+  <% if current_user && current_user.admin %>
   <%= button_to "Refresh All Events", {:controller => "events", :action => "synch_all_events"}, class: 'btn btn-danger' %>
-<% #end %>
-<br><br>
+  <% end %>
+  <br><br>
+</div>
 
 <table class="table table-hover">
   <thead>
@@ -27,7 +29,7 @@
       <td><%= event.title %></td>
       <!--<td><%#= event.image %></td>-->
       <td><%= Date.parse(event.start_time).strftime("%d/%m/%Y") %></td>
-      <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:500px;"><%=event.description.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %></td>
+      <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:500px;"><%= event.description.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %></td>
       <td><%= event.place_name %></td>
       <td><%= event.city %></td>
       <td><%= link_to 'Show', event %></td>

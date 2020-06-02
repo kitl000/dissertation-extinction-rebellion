@@ -62,6 +62,5 @@ List of gems and what they are for:
 - Koala - Lightweight, flexible Ruby SDK for Facebook.
 - Gmaps4rails - Enables easy Google map + overlays creation.
 
-\ 
-Future adaptation
-Description of how the system can be changed for most likely future adaptation and extensions:
+ 
+Future adaptation and extension
