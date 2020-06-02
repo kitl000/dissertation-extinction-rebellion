@@ -12,10 +12,10 @@ Installation instructions:
 
 \
 Third party software required:
-- Sengrid Account for mailer service
+- Sendgrid Account for mailer service
 - Heroku Account for production environment
 
-
+\
 To create an admin account:
 - Go to https://extinction-rebellion-project.herokuapp.com/users/sign_up.
 - Go to terminal and type the following sequnce:
@@ -29,11 +29,12 @@ To create an user account:
 - Go to https://extinction-rebellion-project.herokuapp.com/users/sign_up.
 
 
-
 |               | Admin account  | User Account  |
 | ------------- |:--------------:|:-------------:|
 | Username:     | admin@admin.com|test@test.com  |
 | Password:     | password       | test1234      |
+
+
 *Warning: Admin control will be destroyed whenever database is refreshed.*
 
 \
