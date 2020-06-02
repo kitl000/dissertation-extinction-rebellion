@@ -38,6 +38,9 @@ To create an user account:
 *Warning: Admin control will be destroyed whenever database is refreshed.*
 
 \
+To add changes to 
+
+\
 List of gems and what they are for:
 - JQuery Rails - Provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 - Pg - Ruby interface to the PostgreSQL relational database management system.
