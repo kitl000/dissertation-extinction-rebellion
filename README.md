@@ -38,7 +38,7 @@ To create an user account:
 *Warning: Admin control will be destroyed whenever database is refreshed.*
 
 \
-To add solve precompile assets issue on Window:
+To add precompile assets issue on Window:
 - Go to terminal:
 - $ set RAILS_ENV=production
 - $ bundle exec rake assets:precompile
