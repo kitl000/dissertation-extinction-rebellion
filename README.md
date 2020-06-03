@@ -75,4 +75,4 @@ List of gems and what they are for:
 - Sitemap generator - A framework-agnostic XML Sitemap generator written in Ruby with automatic Rails integration.
 - Mail form - Send e-mail straight from forms in Rails with I18n, validations, attachments and request information.
  
-Future adaptation and extension
+Future adaptation and extension:
