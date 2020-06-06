@@ -1,11 +1,11 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <%# if current_user && current_user.admin %>
+  <% if current_user && current_user.admin %>
     <%= button_to "Refresh Event", {:controller => "events",
                                     :action => "update",
                                     :params => { :fbid => @event.fbid } }, :method=>:put, class: 'btn btn-danger' %>
-  <%# end %>
+  <% end %>
   <br><br>
 
   <p>
@@ -31,26 +31,6 @@
   <p>
     <strong>Place name:</strong>
     <%= @event.place_name %>
-  </p>
-
-  <p>
-    <strong>Lat:</strong>
-    <%= @event.lat %>
-  </p>
-
-  <p>
-    <strong>Long:</strong>
-    <%= @event.long %>
-  </p>
-
-  <p>
-    <strong>Street:</strong>
-    <%= @event.street %>
-  </p>
-
-  <p>
-    <strong>Zip:</strong>
-    <%= @event.zip %>
   </p>
 
   <p>

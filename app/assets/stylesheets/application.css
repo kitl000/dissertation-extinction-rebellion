@@ -69,7 +69,8 @@ body {
 
 .sidebar {
     font-family: "Franklin Gothic Medium";
-    max-height: 60%;
+    border-style: solid;
+    padding: 10px;
 }
 
 .image {
