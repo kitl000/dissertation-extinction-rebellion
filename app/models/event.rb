@@ -1,3 +1,5 @@
+require 'koala'
+
 class Event < ApplicationRecord
   has_one :eventedit
 
@@ -18,7 +20,7 @@ class Event < ApplicationRecord
       .filter{|year| year!=nil&&year!=""}
 
 
-  def synch_event(event, picture)
+  def self.synch_event(event, picture)
     if (event['place']!=nil)
       place = event['place']
       place_name = place['name']
@@ -43,7 +45,7 @@ class Event < ApplicationRecord
       street = nil
       zip = nil
     end
-    existing_event = Event.find_by(fbid: event['id'])
+    existing_event = self.find_by(fbid: event['id'])
     if(picture!=nil && picture['data']!=nil)
       image = picture['data']['url']
     else
@@ -79,7 +81,7 @@ class Event < ApplicationRecord
 
       )
     else
-      Event.create(
+      self.create(
           fbid: event['id'],
           title: event['name'],
           image: image,
