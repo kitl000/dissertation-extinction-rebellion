@@ -3,7 +3,7 @@ require 'database_cleaner'
 
 class EventsController < ApplicationController
   # before_action :authenticate_user!
-  before_action :authenticate_admin, only: [:destroy, :edit, :update]
+  #before_action :authenticate_admin, only: [:destroy, :edit, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # DatabaseCleaner.allow_production = true
@@ -62,7 +62,7 @@ class EventsController < ApplicationController
       picture = @graph.get_connections(page['id'],'picture',{redirect:0})
 
       events.each do |event|
-        self.synch_event(event,picture)
+        Event.synch_event(event,picture)
       end
     end
     redirect_to events_path, notice: "Events Updated"
@@ -73,86 +73,7 @@ class EventsController < ApplicationController
     @graph = Koala::Facebook::API.new('EAAInkjqsD4UBAGdYpyowdWFeauzzcnZC6ChN4RoU4zMW4JrpoCCsSO2VxtsadanLusG6zz2JUAqkOIfHaephOQEiAJeodc26jnDWBkUWHoIvpin92r2RDYWcXrqESC08IXa5ZAEhLIbjHkEtZCgdF29ZAp1QUfGsWzaPMDlSAgZDZD')
     event = @graph.get_object(@id)
     picture = @graph.get_connections(event['id'],'picture',{redirect:0})
-    synch_event(event, picture[0])
-  end
-
-  def synch_event(event, picture)
-    if (event['place']!=nil)
-      place = event['place']
-      place_name = place['name']
-      if (place['location']!=nil)
-        location = place['location']
-        lat = location['latitude']
-        long = location['longitude']
-        street = location['street']
-        city = location['city']
-        zip = location['zip']
-        # links
-      else
-        lat = nil
-        long = nil
-        street = nil
-        zip = nil
-      end
-    else
-      place_name = nil
-      lat = nil
-      long = nil
-      street = nil
-      zip = nil
-    end
-    existing_event = Event.find_by(fbid: event['id'])
-    if(picture!=nil && picture['data']!=nil)
-      image = picture['data']['url']
-    else
-      image = ''
-    end
-    escaped_name = Regexp.escape(event['name'])
-    if escaped_name.include? "Talk"
-      category = "Talk"
-    elsif escaped_name.include? "Meeting"
-      category = "Meeting"
-    elsif escaped_name.include? "March"
-      category = "March"
-    elsif escaped_name.include? "Workshop"
-      category = "Workshop"
-    else
-      category = "Other"
-    end
-    if existing_event!=nil
-      existing_event.update(
-          fbid: event['id'],
-          title: event['name'],
-          image: image,
-          start_time: event['start_time'],
-          end_time: event['end_time'],
-          description: event['description'],
-          place_name: place_name,
-          lat: lat,
-          long: long,
-          street: street,
-          city: city,
-          zip: zip,
-          category: category
-
-      )
-    else
-      Event.create(
-          fbid: event['id'],
-          title: event['name'],
-          image: image,
-          start_time: event['start_time'],
-          end_time: event['end_time'],
-          description: event['description'],
-          place_name: place_name,
-          lat: lat,
-          long: long,
-          street: street,
-          city: city,
-          zip: zip,
-          category: category
-      )
-    end
+    Event.synch_event(event, picture[0])
   end
 
   # GET /events/1/edit
@@ -187,7 +108,7 @@ class EventsController < ApplicationController
       @graph = Koala::Facebook::API.new('EAAInkjqsD4UBAGdYpyowdWFeauzzcnZC6ChN4RoU4zMW4JrpoCCsSO2VxtsadanLusG6zz2JUAqkOIfHaephOQEiAJeodc26jnDWBkUWHoIvpin92r2RDYWcXrqESC08IXa5ZAEhLIbjHkEtZCgdF29ZAp1QUfGsWzaPMDlSAgZDZD')
       event = @graph.get_object(@id)
       picture = @graph.get_connections(event['id'],'picture',{redirect:0})
-      synch_event(event, picture[0])
+      Event.synch_event(event, picture[0])
   end
 
   # DELETE /events/1
