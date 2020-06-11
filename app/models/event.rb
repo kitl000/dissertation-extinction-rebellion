@@ -3,6 +3,11 @@ require 'koala'
 class Event < ApplicationRecord
   has_one :eventedit
 
+  validates_presence_of :title
+  validates_presence_of :description
+  validates_presence_of :start_time
+  validates_presence_of :end_time
+
   acts_as_taggable_on :places
 
   $places = self.distinct.pluck(:city).filter{|p| p!=nil&&p!=""&&p!="City"}
