@@ -12,7 +12,7 @@ require 'database_cleaner'
 
 #groupids = CSV.read(Rails.root.join('db','XRGroups.csv'))
 
-@graph = Koala::Facebook::API.new('EAAInkjqsD4UBAGdYpyowdWFeauzzcnZC6ChN4RoU4zMW4JrpoCCsSO2VxtsadanLusG6zz2JUAqkOIfHaephOQEiAJeodc26jnDWBkUWHoIvpin92r2RDYWcXrqESC08IXa5ZAEhLIbjHkEtZCgdF29ZAp1QUfGsWzaPMDlSAgZDZD')
+@graph = Koala::Facebook::API.new('FACEBOOK_API')
 # profile = @graph.get_object('me')
 # puts profile.inspect
 # Koala::Facebook::API.graph_call(/graph/give/me/data,[args],verb)

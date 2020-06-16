@@ -105,7 +105,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
       @id = params["fbid"]
-      @graph = Koala::Facebook::API.new('EAAInkjqsD4UBAGdYpyowdWFeauzzcnZC6ChN4RoU4zMW4JrpoCCsSO2VxtsadanLusG6zz2JUAqkOIfHaephOQEiAJeodc26jnDWBkUWHoIvpin92r2RDYWcXrqESC08IXa5ZAEhLIbjHkEtZCgdF29ZAp1QUfGsWzaPMDlSAgZDZD')
+      @graph = Koala::Facebook::API.new('FACEBOOK_API')
       event = @graph.get_object(@id)
       picture = @graph.get_connections(event['id'],'picture',{redirect:0})
       Event.synch_event(event, picture[0])
