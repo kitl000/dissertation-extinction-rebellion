@@ -16,7 +16,7 @@ gem 'omniauth-facebook'
 # Use db cleaner to empty db without deleting schema
 gem 'database_cleaner'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 #Use pickadate for date picker
